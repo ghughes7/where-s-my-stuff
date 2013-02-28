@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+/Users/akikohime112/where-s-my-stuff/.metadata/.plugins/org.eclipse.jdt.core
-2751876538.index
-2948970522.index
