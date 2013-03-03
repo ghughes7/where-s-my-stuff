@@ -1,17 +1,18 @@
 package edu.gatech.TriggerHappyCoders;
 
-import edu.gatech.User.UserCollection;
-import edu.gatech.User.User;
-import android.widget.Button;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
-import android.view.View;
-import android.widget.EditText;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import edu.gatech.User.User;
+import edu.gatech.User.UserCollection;
+import edu.gatech.presenterView.CreateNewItemActivity;
 
 
 public class MainActivity extends Activity {
@@ -23,22 +24,20 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		UserCollection uc = new UserCollection();
-		user = uc.getUser();
+		//temporary code
+		//UserCollection uc = new UserCollection();
+		//user = uc.getUser();
 		
-		
-		
-		Button login=(Button)findViewById(R.id.loginButton);
-		login.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                EditText name = (EditText)findViewById(R.id.username);
-                EditText password = (EditText)findViewById(R.id.password);
-                showDialog(name.getText().toString(),password.getText().toString());
-                /*
-               
-                */
-            }
-        });
+	}
+	
+	
+	//is called when login button is clicked
+	public void goToItemProfile(View view){//supposed to go to user profile, will change later
+		EditText name = (EditText)findViewById(R.id.username);//get name
+        EditText password = (EditText)findViewById(R.id.password);//get password
+        //needs to check if user is valid
+		Intent intent = new Intent(this, CreateNewItemActivity.class);
+		startActivity(intent);
 		
 	}
 
@@ -48,6 +47,8 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
+	
+	/*      all temp code until database is running
 	
 	public void showDialog(String name, String password){
 		 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -73,7 +74,9 @@ public class MainActivity extends Activity {
 		
 		
 		alertDialog.show();
+		}
+		*/
 		
-	}
+
 
 }

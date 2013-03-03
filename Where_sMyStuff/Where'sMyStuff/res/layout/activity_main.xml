@@ -13,7 +13,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="66dp"
-        android:text="login" />
+        android:text="login" 
+    	android:onClick="goToItemProfile" />
 
     <EditText
         android:id="@+id/username"
