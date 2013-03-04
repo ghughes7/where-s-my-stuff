@@ -62,7 +62,8 @@ public class CreateNewItemActivity extends Activity {
 		
 		
 		Intent intent = new Intent(this, ItemProfilePageActivity.class);//go to item profile page
-		startActivity(intent);
+		intent.putExtra("itemObj",item);//pass in the ItemProfile object, the string can be named anything
+		startActivity(intent);//go to the item profile page activity
 	}
 	
 	

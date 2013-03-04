@@ -1,6 +1,9 @@
 package edu.gatech.presenterView;
 
-public class ItemProfile {
+import java.io.Serializable;
+
+@SuppressWarnings("serial") //with this annotation we are going to hide compiler warning
+public class ItemProfile implements Serializable{//so we can pass an ItemProfile object to different intents/activities
 	
 	private String itemName;
 	private String itemDescription;
