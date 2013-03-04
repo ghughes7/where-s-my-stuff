@@ -1,5 +1,8 @@
 package edu.gatech.User;
 
+/**
+ * Creates a user class where user has a name, email, and password.
+ */
 public class User {
 	
 	private String name;
