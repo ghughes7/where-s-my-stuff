@@ -4,7 +4,6 @@ import java.util.*;
 
 public class UserCollection {
 	
-	private User u;
 	private List<User> userArray = new ArrayList<User>();
 	
 	public UserCollection(){

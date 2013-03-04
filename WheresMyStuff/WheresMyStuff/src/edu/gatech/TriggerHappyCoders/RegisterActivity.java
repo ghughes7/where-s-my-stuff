@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 public class RegisterActivity extends Activity {
 	
-	private User user;
 	UserCollection uc = new UserCollection();
 	
     @Override
@@ -38,7 +37,7 @@ public class RegisterActivity extends Activity {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				EditText name = (EditText)findViewById(R.id.reg_email);
+				EditText name = (EditText)findViewById(R.id.reg_fullname);
 				EditText password = (EditText) findViewById(R.id.reg_password);
 				EditText email = (EditText) findViewById(R.id.reg_email);
 				showDialog(name.getText().toString(), email.getText().toString(), 

@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.androidhive.loginandregister;
+package edu.gatech.TriggerHappyCoders;
 
 public final class R {
     public static final class attr {
