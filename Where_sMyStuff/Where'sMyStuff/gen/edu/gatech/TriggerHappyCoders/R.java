@@ -23,7 +23,7 @@ public final class R {
         public static final int username=0x7f070001;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_login=0x7f030000;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
