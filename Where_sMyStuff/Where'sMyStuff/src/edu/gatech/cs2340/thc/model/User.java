@@ -1,5 +1,8 @@
 package edu.gatech.cs2340.thc.model;
 
+/**
+ * Creates a user class where user has a name, email, and password.
+ */
 public class User {
 	
 	private String name;
@@ -13,17 +16,14 @@ public class User {
 	}
 	
 	public void setName(String n){
-		name = n;
-		
+		name = n;	
 	}
 	public void setPassword(String p){
 		password = p;
 		
 	}
-	
 	public void setEmail(String e){
 		email = e;
-		
 	}
 	
 	public String getName(){
@@ -31,11 +31,9 @@ public class User {
 	}
 	public String getPassword(){
 		return password;
-		
 	}
 	public String getEmail(){
 		return email;
-		
 	}
 	
 }
