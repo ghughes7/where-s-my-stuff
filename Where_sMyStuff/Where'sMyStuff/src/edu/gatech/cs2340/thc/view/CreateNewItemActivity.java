@@ -1,8 +1,10 @@
-package edu.gatech.presenterView;
+package edu.gatech.cs2340.thc.view;
 
-import edu.gatech.TriggerHappyCoders.MainActivity;
 
+import edu.gatech.TriggerHappyCoders.LoginActivity;
 import edu.gatech.TriggerHappyCoders.R;
+import edu.gatech.cs2340.thc.model.Item;
+import edu.gatech.cs2340.thc.presenter.ItemProfilePageActivity;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -56,7 +58,7 @@ public class CreateNewItemActivity extends Activity {
 		String rewardString = reward.getText().toString();
 		String itemDesString = itemDes.getText().toString();
 		
-		ItemProfile item = new ItemProfile(itemString, itemDesString, rewardString, type);
+		Item item = new Item(itemString, itemDesString, rewardString, type);
 		
 		//add code to put item into item collection then database
 		
@@ -71,7 +73,7 @@ public class CreateNewItemActivity extends Activity {
 	//if user click "cancel" button
 	public void goToLoginPage(View view){
 		
-		Intent intent = new Intent(this, MainActivity.class);//go back to login page
+		Intent intent = new Intent(this, LoginActivity.class);//go back to login page
 		startActivity(intent);
 		
 	}

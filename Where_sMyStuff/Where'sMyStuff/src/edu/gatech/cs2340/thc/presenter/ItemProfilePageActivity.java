@@ -1,7 +1,8 @@
-package edu.gatech.presenterView;
+package edu.gatech.cs2340.thc.presenter;
 
 
 import edu.gatech.TriggerHappyCoders.R;
+import edu.gatech.cs2340.thc.model.Item;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -21,7 +22,7 @@ public class ItemProfilePageActivity extends Activity {
 	
 	public void displayInfo(){
 		Intent intent = getIntent();
-		ItemProfile item = (ItemProfile)intent.getSerializableExtra("itemObj");//get the item from previous activity
+		Item item = (Item)intent.getSerializableExtra("itemObj");//get the item from previous activity
 		EditText editText = (EditText)findViewById(R.id.itemNameProfile);//get the item name text field
 		editText.setText(item.getItemName());//add the new item's name into that text field
 		

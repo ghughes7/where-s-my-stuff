@@ -1,9 +1,9 @@
-package edu.gatech.presenterView;
+package edu.gatech.cs2340.thc.model;
 
 import java.io.Serializable;
 
 @SuppressWarnings("serial") //with this annotation we are going to hide compiler warning
-public class ItemProfile implements Serializable{//so we can pass an ItemProfile object to different intents/activities
+public class Item implements Serializable{//so we can pass an ItemProfile object to different intents/activities
 	
 	private String itemName;
 	private String itemDescription;
@@ -14,7 +14,7 @@ public class ItemProfile implements Serializable{//so we can pass an ItemProfile
 	private String dateCreated;
 	private String catagory;
 	
-	public ItemProfile(String itemN, String itemDes, String r, String t){
+	public Item(String itemN, String itemDes, String r, String t){
 		itemName = itemN;
 		itemDescription = itemDes;
 		reward = r;

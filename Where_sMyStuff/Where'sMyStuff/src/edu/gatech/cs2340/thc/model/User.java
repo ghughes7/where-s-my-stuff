@@ -1,4 +1,4 @@
-package edu.gatech.User;
+package edu.gatech.cs2340.thc.model;
 
 public class User {
 	

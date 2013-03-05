@@ -10,12 +10,13 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import edu.gatech.User.User;
-import edu.gatech.User.UserCollection;
-import edu.gatech.presenterView.CreateNewItemActivity;
+import edu.gatech.TriggerHappyCoders.R;
+import edu.gatech.cs2340.thc.model.User;
+import edu.gatech.cs2340.thc.model.UserCollection;
+import edu.gatech.cs2340.thc.view.CreateNewItemActivity;
 
 
-public class MainActivity extends Activity {
+public class LoginActivity extends Activity {
 	
 	private User user;
 	
