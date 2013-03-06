@@ -2,14 +2,16 @@ package edu.gatech.cs2340.thc.model;
 
 public class User {
 	
-	private String name;
-	private String password;
-	private String email;
+	protected String name;
+	protected String password;
+	protected String email;
+	protected boolean elevatedStatus;//this is true for Admin - coherent with Liskov Substitution Property
 	
 	public User(String name, String password,String email){
 		this.name = name;
 		this.password = password;
 		this.email = email;
+		elevatedStatus = false;
 	}
 	
 	public void setName(String n){
@@ -36,6 +38,10 @@ public class User {
 	public String getEmail(){
 		return email;
 		
+	}
+	
+	public boolean getelevatedStatus() {
+		return elevatedStatus;
 	}
 	
 }
