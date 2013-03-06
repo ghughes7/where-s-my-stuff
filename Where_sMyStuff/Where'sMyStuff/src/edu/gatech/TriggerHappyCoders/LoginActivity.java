@@ -26,9 +26,9 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
-		//Gets the user from UserCollection
-		//UserCollection uc = new UserCollection();
-		//user = uc.getUser();
+//		Gets the user from UserCollection
+		UserCollection uc = new UserCollection();
+		user = uc.getUser();
 		
 		
 		
