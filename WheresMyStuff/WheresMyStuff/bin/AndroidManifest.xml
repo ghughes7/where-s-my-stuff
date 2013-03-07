@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+		<activity
+            android:name="edu.gatech.cs2340.thc.view.RegisterNewUserActivity"
+            android:label="title_activity_register_new_user" >
+        </activity>
         <activity
             android:name="edu.gatech.cs2340.thc.view.CreateNewItemActivity"
             android:label="title_activity_new_item" >

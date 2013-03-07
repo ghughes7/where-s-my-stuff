@@ -45,6 +45,7 @@ public final class R {
         public static final int itemName=0x7f08001e;
         public static final int itemNameProfile=0x7f080006;
         public static final int link_to_login=0x7f08002f;
+        public static final int link_to_register=0x7f080018;
         public static final int loginButton=0x7f080015;
         public static final int nameField=0x7f08001d;
         public static final int password=0x7f080017;
@@ -63,7 +64,6 @@ public final class R {
         public static final int tab4=0x7f08001c;
         public static final int textView1=0x7f080005;
         public static final int textView2=0x7f080002;
-        public static final int textView3=0x7f080018;
         public static final int textView4=0x7f080010;
         public static final int textView5=0x7f080009;
         public static final int textView6=0x7f080008;

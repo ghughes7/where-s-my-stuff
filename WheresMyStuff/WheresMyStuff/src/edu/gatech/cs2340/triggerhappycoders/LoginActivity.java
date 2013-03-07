@@ -35,8 +35,6 @@ public class LoginActivity extends Activity {
 		UserCollection uc = new UserCollection();
 		user = uc.getUser();
 		
-		TextView registerScreen = (TextView) findViewById(R.id.textView3);		
-
         // When the user clicks "Log In" 
         Button login = (Button) findViewById(R.id.loginButton);
         login.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +47,7 @@ public class LoginActivity extends Activity {
 		});
 		
 		// When the user clicks "Sign up" changes to registration screen
+		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);		
 		registerScreen.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View v) {
 				// Switching to Register screen
@@ -58,7 +57,7 @@ public class LoginActivity extends Activity {
 		});	
 	}
 	
-	/*//is called when login button is clicked
+/*	//is called when login button is clicked
 	public void goToItemProfile(View view){//supposed to go to user profile, will change later
 		EditText name = (EditText)findViewById(R.id.username);//get name
         EditText password = (EditText)findViewById(R.id.password);//get password
@@ -96,8 +95,7 @@ public class LoginActivity extends Activity {
 				public void onClick(DialogInterface dialog, int which) {
 				// here you can add functions
 				}
-			});
-			 
+			}); 
 		}	
 		alertDialog.show();
 	}
