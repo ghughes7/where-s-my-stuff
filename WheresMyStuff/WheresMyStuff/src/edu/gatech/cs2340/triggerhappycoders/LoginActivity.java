@@ -3,6 +3,7 @@ package edu.gatech.cs2340.triggerhappycoders;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,37 +36,25 @@ public class LoginActivity extends Activity {
 		UserCollection uc = new UserCollection();
 		user = uc.getUser();
 		
-        // When the user clicks "Log In" 
-        Button login = (Button) findViewById(R.id.loginButton);
-        login.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				// Validates if login info is correct
-				EditText name = (EditText)findViewById(R.id.reg_email);
-				EditText password = (EditText) findViewById(R.id.reg_password);
-				showDialog(name.getText().toString(), password.getText().toString());
-			}
-		});
-		
 		// When the user clicks "Sign up" changes to registration screen
 		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);		
 		registerScreen.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View v) {
 				// Switching to Register screen
-				Intent i = new Intent(getApplicationContext(), RegisterNewUserActivity.class);
+        		Context mContext = getApplicationContext();
+				Intent i = new Intent(mContext, RegisterNewUserActivity.class);
 				startActivity(i);
 			}
 		});	
 	}
 	
-/*	//is called when login button is clicked
-	public void goToItemProfile(View view){//supposed to go to user profile, will change later
+	//is called when login button is clicked
+	public void validateLogin(View view){//supposed to go to user profile, will change later
 		EditText name = (EditText)findViewById(R.id.username);//get name
         EditText password = (EditText)findViewById(R.id.password);//get password
         //needs to check if user is valid
         showDialog(name.getText().toString(), password.getText().toString());
-		Intent intent = new Intent(this, CreateNewItemActivity.class);
-		startActivity(intent);
-	}*/
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -85,6 +74,7 @@ public class LoginActivity extends Activity {
 				alertDialog.setButton(-3,"OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 				// here you can add functions
+					
 				}
 			});     	
          }

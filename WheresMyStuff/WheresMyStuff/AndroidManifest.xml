@@ -24,11 +24,7 @@
         </activity>
 		<activity
             android:name="edu.gatech.cs2340.thc.view.RegisterNewUserActivity"
-            android:label="title_activity_register_new_user" >
-        </activity>
-        <activity
-            android:name="edu.gatech.cs2340.thc.view.RegisterNewUserActivity"
-            android:label="Register Your New Account" >
+            android:label="Register Your Account Here" >
         </activity>
         <activity
             android:name="edu.gatech.cs2340.thc.view.CreateNewItemActivity"

@@ -54,7 +54,7 @@ public class RegisterNewUserActivity extends Activity{
 	/*
 	 * Pop up dialogues that tell the user if registration is successful
 	 */
-	public void showDialog(String name, String email, String password) {
+	public void showDialog(final String name, final String email, final String password) {
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 		// If email is already in the User Collection don't allow registration
 		if (uc.getUser().getEmail() == email) {
@@ -73,10 +73,8 @@ public class RegisterNewUserActivity extends Activity{
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
 							// here you can add functions
-							User newUser = new User(uc.getUser().getEmail(), uc
-									.getUser().getName(), uc.getUser()
-									.getPassword());
-							uc.addUser(newUser);
+							/*User newUser = new User(name, email, password);
+							uc.addUser(newUser);*/
 						}
 					});
 		}
