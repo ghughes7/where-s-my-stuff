@@ -40,7 +40,7 @@ public class User {
 		
 	}
 	
-	public void setUser(){
+	public void lockedUser(){
 		isLocked = true;
 		
 	}
@@ -49,5 +49,11 @@ public class User {
 		isLocked = false;
 		
 	}
+	public boolean getLockedStatus(){
+		return isLocked;
+		
+	}
+	
+	
 	
 }
