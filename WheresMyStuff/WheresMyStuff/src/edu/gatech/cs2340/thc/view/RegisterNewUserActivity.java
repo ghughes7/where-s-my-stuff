@@ -18,8 +18,8 @@ import edu.gatech.cs2340.triggerhappycoders.R;
  *
  */
 public class RegisterNewUserActivity extends Activity{
-
-	UserCollection uc = new UserCollection();
+	private User person;
+	private UserCollection uc = new UserCollection();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -65,11 +65,12 @@ public class RegisterNewUserActivity extends Activity{
 	 */
 	public void showDialog(String name, String password, String email) {
 		
-		User u = new User(name, password, email);
 		
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 		
 		// If email is already in the User Collection don't allow registration
+		//if(u.getEmail() == uc.getUser(email).getEmail()){
+		
 		if(email.equals(uc.getUser(email).getEmail())){
 			alertDialog.setMessage("Email already exists.");
 			alertDialog.setButton(-3, "OK",
@@ -82,6 +83,7 @@ public class RegisterNewUserActivity extends Activity{
 		
 		else{
 			alertDialog.setMessage("Registration Successful");
+			User u = new User(name, password, email);
 			uc.addUser(u);
 			alertDialog.setButton(-3, "OK",
 					new DialogInterface.OnClickListener() {

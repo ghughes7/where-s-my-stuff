@@ -23,11 +23,13 @@ import edu.gatech.cs2340.thc.view.RegisterNewUserActivity;
 public class LoginActivity extends Activity {
 	
 	private User user;
+	private Security security;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		security = new Security();
 			
 		// When the user clicks "Sign up" changes to registration screen
 		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);		
@@ -43,13 +45,26 @@ public class LoginActivity extends Activity {
 	
 	//is called when login button is clicked
 	public void validateLogin(View view){//supposed to go to user profile, will change later
-		EditText email = (EditText)findViewById(R.id.emailAddressText);//get name
+		EditText email = (EditText)findViewById(R.id.username);//get name
         EditText password = (EditText)findViewById(R.id.password);//get password
         //needs to check if user is valid
         //showDialog(email.getText().toString(), password.getText().toString());
-        Intent intent = new Intent(this, UserProfileActivity.class);
-		startActivity(intent);
-    
+        
+        security.findUser(email.getText().toString());
+        
+        if(security.checkMatch(email.getText().toString(), password.getText().toString())){
+            Intent intent = new Intent(this, UserProfileActivity.class);
+            startActivity(intent);
+        	 
+        }
+        else{
+            security.checkAttempts(email.getText().toString(), password.getText().toString());
+            if(security.getIsLocked()){
+                TextView textview = new TextView(this);
+                textview.setText("Locked Out. Restart app to log in again.");
+                setContentView(textview);
+            }
+        }
 	}
 
 	@Override

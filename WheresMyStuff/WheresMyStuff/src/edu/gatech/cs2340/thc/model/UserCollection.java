@@ -17,6 +17,15 @@ public class UserCollection {
 		userArray.add(new User("user3","user3pw","user3@gmail.com"));
 	}
 	public User getUser(String email){
+	        
+/*	        for(int i = 0; i < userArray.size(); i++){
+	            if(email.equals(userArray.get(i).getEmail())){
+	                return userArray.get(i);    
+	            }
+	        }
+	        return null;*/
+		
+
 		User tmp = userArray.get(0);
 		for(int i =0; i < userArray.size(); i++){
 			if(email.equals(userArray.get(i).getEmail())){
@@ -40,5 +49,6 @@ public class UserCollection {
 			}
 			
 		}
-	}	
+	}
+	
 }

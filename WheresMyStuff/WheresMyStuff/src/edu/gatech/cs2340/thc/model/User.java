@@ -45,9 +45,19 @@ public class User {
 		
 	}
 	
-	public void unLockedUser(){
-		isLocked = false;
-		
-	}
+	public void lockedUser(){
+        isLocked = true;
+        
+    }
+    
+    public void unLockedUser(){
+        isLocked = false;
+        
+    }
+    public boolean getLockedStatus(){
+        return isLocked;
+        
+    }
+	
 	
 }
