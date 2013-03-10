@@ -4,19 +4,41 @@ import java.util.*;
 
 public class UserCollection {
 	
-	private List<User> userArray = new ArrayList<User>();
+	private List<User> userArray;
 	
 	public UserCollection(){
-		User u = new User("fakeuser","fake","blah@gmail.com");	
+		userArray = new ArrayList<User>();
+		makeUpUsers();
+	}
+	
+	public void makeUpUsers(){
+		userArray.add(new User("user1","user1pw","user1@gmail.com"));
+		userArray.add(new User("user2","user2pw","user2@gmail.com"));
+		userArray.add(new User("user3","user3pw","user3@gmail.com"));
+	}
+	public User getUser(String email){
+		User tmp = userArray.get(0);
+		for(int i =0; i < userArray.size(); i++){
+			if(email.equals(userArray.get(i).getEmail())){
+				tmp = userArray.get(i);	
+			}
+		}
+		return tmp;
+	}
+	
+	public void addUser(User u){
 		userArray.add(u);
-	}
-	
-	public User addUser(User u){
-		return u;
-	}
-	
-	public User getUser(){
-		return userArray.get(0);
 		
 	}
+	
+	public void deleteUser(User u){
+		
+		for(int i =0; i < userArray.size(); i++){
+			if(u.equals(userArray.get(i))){
+				userArray.remove(i);
+				
+			}
+			
+		}
+	}	
 }

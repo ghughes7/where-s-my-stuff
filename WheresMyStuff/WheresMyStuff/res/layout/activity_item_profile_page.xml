@@ -70,7 +70,7 @@
                         android:src="@drawable/ic_launcher" />
 
                     <TextView
-                        android:id="@+id/textView1"
+                        android:id="@+id/Items"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/imageView1"
@@ -83,8 +83,8 @@
                         android:id="@+id/itemNameProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBaseline="@+id/textView1"
-                        android:layout_alignBottom="@+id/textView1"
+                        android:layout_alignBaseline="@+id/Items"
+                        android:layout_alignBottom="@+id/Items"
                         android:layout_toRightOf="@+id/imageView1"
                         android:ems="10" >
 

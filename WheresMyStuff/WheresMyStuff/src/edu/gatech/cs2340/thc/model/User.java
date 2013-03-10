@@ -5,11 +5,13 @@ public class User {
 	private String name;
 	private String password;
 	private String email;
+	private boolean isLocked;
 	
 	public User(String name, String password,String email){
 		this.name = name;
 		this.password = password;
 		this.email = email;
+		isLocked = false;
 	}
 	
 	public void setName(String n){
@@ -35,6 +37,16 @@ public class User {
 	}
 	public String getEmail(){
 		return email;
+		
+	}
+	
+	public void setUser(){
+		isLocked = true;
+		
+	}
+	
+	public void unLockedUser(){
+		isLocked = false;
 		
 	}
 	

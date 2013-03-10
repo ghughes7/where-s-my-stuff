@@ -28,11 +28,19 @@
         </activity>
         <activity
             android:name="edu.gatech.cs2340.thc.view.CreateNewItemActivity"
-            android:label="title_activity_new_item" >
+            android:label="Create a New Item" >
         </activity>
         <activity
             android:name="edu.gatech.cs2340.thc.presenter.ItemProfilePageActivity"
-            android:label="title_activity_item_profile_page" >
+            android:label="Item Profile" >
+        </activity>
+		        <activity
+            android:name="edu.gatech.cs2340.thc.view.ShowListActivity"
+            android:label="Item List" >
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.thc.presenter.UserProfileActivity"
+            android:label="Your Profile" >
         </activity>
     </application>
 
