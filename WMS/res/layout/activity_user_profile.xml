@@ -56,25 +56,14 @@
                         android:text="Name"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
                     
-                    <!-- Displays the user's phone number, if applicable -->
-
-                    <TextView
-                        android:id="@+id/phoneNumberText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_alignLeft="@+id/fullNameText"
-                        android:layout_below="@+id/fullNameText"
-                        android:text="phone"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-                    
                     <!-- Displays the user's email address -->
 
                     <TextView
                         android:id="@+id/emailAddressText"
                         android:layout_width="wrap_content"
                         android:layout_height="18dp"
-                        android:layout_alignLeft="@+id/phoneNumberText"
-                        android:layout_below="@+id/phoneNumberText"
+                        android:layout_alignLeft="@+id/fullNameText"
+                        android:layout_below="@+id/fullNameText"
                         android:text="email"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                     
@@ -89,42 +78,26 @@
                         android:layout_marginBottom="17dp"
                         android:background="@drawable/buttons"
                         android:text="Add Item" />
-                    
-                    <!-- Displays the second item on the list -->
-
-                    <Button
-                        android:id="@+id/secondItem"
-                        android:layout_width="150dp"
-                        android:layout_height="60dp"
-                        android:layout_alignLeft="@+id/firstItem"
-                        android:layout_below="@+id/firstItem"
-                        android:layout_marginTop="14dp"
-                        android:background="#ffffff"
-                        android:text="." />
-                    
-                    <!-- Displays the first item on the list -->
-
-                    <Button
-                        android:id="@+id/firstItem"
-                        android:layout_width="150dp"
-                        android:layout_height="60dp"
-                        android:layout_below="@+id/imageView1"
+						
+					<Button
+                        android:id="@+id/listItem"
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="17dp"
-                        android:background="#ffffff"
-                        android:text="." />
-                    
-                    <!-- Displays the third item on the list -->
-
-                    <Button
-                        android:id="@+id/thirdItem"
-                        android:layout_width="150dp"
-                        android:layout_height="60dp"
-                        android:layout_alignLeft="@+id/secondItem"
-                        android:layout_below="@+id/secondItem"
-                        android:layout_marginTop="14dp"
-                        android:background="#ffffff"
-                        android:text="." />
+                        android:layout_marginBottom="70dp"
+                        android:background="@drawable/buttons"
+                        android:text="View Your Items" />
+						
+					<Button
+                        android:id="@+id/listUser"
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="123dp"
+                        android:background="@drawable/buttons"
+                        android:text="View Users" />
                     
                 </RelativeLayout>
 

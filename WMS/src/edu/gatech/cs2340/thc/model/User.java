@@ -1,6 +1,9 @@
 package edu.gatech.cs2340.thc.model;
 
-public class User {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class User implements Serializable {
 	
 	private String name;
 	private String password;
@@ -40,20 +43,24 @@ public class User {
 		
 	}
 	
-	public void lockedUser(){
+	public void setUser(){
 		isLocked = true;
 		
 	}
 	
-	public void unLockedUser(){
-		isLocked = false;
-		
-	}
-	public boolean getLockedStatus(){
-		return isLocked;
-		
-	}
-	
+	public void lockedUser(){
+        isLocked = true;
+        
+    }
+    
+    public void unLockedUser(){
+        isLocked = false;
+        
+    }
+    public boolean getLockedStatus(){
+        return isLocked;
+        
+    }
 	
 	
 }

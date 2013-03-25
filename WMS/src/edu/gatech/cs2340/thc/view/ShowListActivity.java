@@ -4,15 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import edu.gatech.cs2340.triggerhappycoders.R;
-import edu.gatech.cs2340.triggerhappycoders.R.id;
-import edu.gatech.cs2340.triggerhappycoders.R.layout;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import edu.gatech.cs2340.triggerhappycoders.R;
 
 public class ShowListActivity extends Activity {
 

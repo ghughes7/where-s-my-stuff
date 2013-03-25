@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.thc.presenter;
+package edu.gatech.cs2340.thc.view;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +12,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import edu.gatech.cs2340.thc.model.User;
+import edu.gatech.cs2340.thc.presenter.UserProfileActivity;
 import edu.gatech.cs2340.triggerhappycoders.DBController;
 import edu.gatech.cs2340.triggerhappycoders.R;
 
-public class ItemProfilePageActivity extends ListActivity {
+public class ShowUsersActivity extends ListActivity {
 
 	private User user;
 	TextView selection;
@@ -23,7 +24,7 @@ public class ItemProfilePageActivity extends ListActivity {
 	DBController db;
 
 	List<String[]> list = new ArrayList<String[]>();
-	List<String[]> names2 = null ;
+	List<String[]> usernames2 = null ;
 	String[] stg1;
 	
 	protected void onCreate(Bundle savedInstanceState){
@@ -37,34 +38,33 @@ public class ItemProfilePageActivity extends ListActivity {
 				//when button is clicked, the screen changes
 				Intent addItemScreen = new Intent(getApplicationContext(), 
 						UserProfileActivity.class);
-				addItemScreen.putExtra("user", user);
+				//addItemScreen.putExtra("user", user);
 				startActivity(addItemScreen);
 			}
 		});	
 		
 		//Gets the database info
 		db = new DBController(this);
-	    names2 = db.selectAll();
+	    usernames2 = db.allUsers();
 	    
 	    //Gets the user
 	    Intent intent = getIntent();
 	    user = (User)intent.getSerializableExtra("user");
 
-		stg1=new String[names2.size()]; 
+		stg1=new String[usernames2.size()]; 
 		int x=0;
 		String stg;
 
 		//Goes through the database
-		for (String[] name : names2) {
+		for (String[] username : usernames2) {
 			//Checks for a specific user
-			if(name[7].equals(user.getEmail())){
-				stg = "Name: " + name[1] + "\n" + "Description: " + name[2] + 
-						"\n" + "Reward: " + name[3] + "\n" + "Type: " + name[4] + 
-						"\n" + "Date Added: " + name[5] + "\n" + "Category: " + 
-						name[6] + "\n" + "Owner: " + name[7] + "\n";				
+			//if(name[7].equals(user.getEmail())){
+				stg = "Name: " + username[1] + "\n" + "Password: " + username[2] + 
+						"\n" + "Email: " + username[3] + "\n" + "Is Locked: " + 
+						username[4] + "\n" + "Is Admin: " + username[5] + "\n";				
 				stg1[x]=stg;
 				x++;
-			}
+			//}
 		}
 
 		//Displays to the screen

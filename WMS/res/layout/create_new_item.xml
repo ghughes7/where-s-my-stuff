@@ -33,7 +33,7 @@
         android:layout_alignLeft="@+id/itemName"
         android:layout_below="@+id/nameField"
         android:layout_marginTop="15dp"
-        android:text="Type"
+        android:text="Type:"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -65,15 +65,6 @@
         android:onClick="createNewItem"
         android:text="Create New Item" />
 
-    <Button
-        android:id="@+id/catagoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/Items"
-        android:layout_below="@+id/addPicButton"
-       
-        android:text="Choose Catagory" />
-
     <TextView
         android:id="@+id/itemName"
         android:layout_width="wrap_content"
@@ -81,7 +72,7 @@
         android:layout_alignLeft="@+id/Items"
         android:layout_below="@+id/Items"
         android:layout_marginTop="17dp"
-        android:text="Name: "
+        android:text="Item Name: "
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -133,15 +124,76 @@
         android:layout_below="@+id/itemDesField"
         android:text="Add Picture" />
 
+	<TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reward"
+        android:layout_below="@+id/addPicButton"
+        android:layout_marginTop="15dp"
+        android:text="Category:" />
+
+    <RadioGroup
+        android:id="@+id/categoryRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/category"
+        android:layout_toRightOf="@+id/itemName" >
+
+        <RadioButton
+            android:id="@+id/categoryKeepsake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Keepsake" />
+			
+			
+        <RadioButton
+            android:id="@+id/categoryHeirloom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Heirloom" />
+
+        <RadioButton
+            android:id="@+id/catagoryMisc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/categoryKeepsake"
+            android:layout_alignBottom="@+id/categoryKeepsake"
+            android:layout_toRightOf="@+id/categoryKeepsake"
+            android:text="Misc" />
+    </RadioGroup>
+	
+	<TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reward"
+        android:layout_below="@+id/categoryRadio"
+        android:layout_marginTop="15dp"
+        android:text="Date Added:" />
+
+    <EditText
+        android:id="@+id/dateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nameField"
+        android:layout_alignRight="@+id/rewardField"
+        android:layout_below="@+id/categoryRadio"
+        android:ems="10"
+        android:inputType="date" />
+		
+		
     <Button
         android:id="@+id/cancelButton"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/itemDes"
-        android:layout_below="@+id/catagoryButton"
+        android:layout_below="@+id/dateField"
         android:layout_marginTop="15dp"
         android:text="Cancel" 
-        android:onClick = "goToLoginPage"/>
+        android:onClick = "goToUserProfile"/>
 
 </RelativeLayout>

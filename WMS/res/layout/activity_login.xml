@@ -15,8 +15,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="66dp"
-        android:text="login" 
-    	android:onClick="goToItemProfile" />
+        android:text="Login Here" 
+		android:onClick="validateLogin" />
 
     <EditText
         android:id="@+id/username"
@@ -33,16 +33,17 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/username"
         android:layout_centerVertical="true"
-        android:ems="10" />
+        android:ems="10" 
+		android:inputType="textPassword" />
 
     <TextView
-        android:id="@+id/Items"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/username"
         android:layout_alignLeft="@+id/username"
         android:layout_marginBottom="39dp"
-        android:text="UserName"
+        android:text="User Email"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -50,18 +51,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/password"
-        android:layout_alignRight="@+id/Items"
+        android:layout_alignRight="@+id/textView1"
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+	
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/link_to_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="34dp"
-        android:text="Sign Up" />
-    
+        android:text="Sign Up Here" />
 
+  
 </RelativeLayout>

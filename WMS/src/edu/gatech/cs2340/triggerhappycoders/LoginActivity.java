@@ -3,46 +3,76 @@ package edu.gatech.cs2340.triggerhappycoders;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import edu.gatech.cs2340.triggerhappycoders.R;
+import android.widget.TextView;
 import edu.gatech.cs2340.thc.model.User;
 import edu.gatech.cs2340.thc.model.UserCollection;
 import edu.gatech.cs2340.thc.presenter.UserProfileActivity;
-import edu.gatech.cs2340.thc.view.CreateNewItemActivity;
+import edu.gatech.cs2340.thc.view.RegisterNewUserActivity;
 
-
+/**
+ * 
+ * Login form
+ * @author THC
+ *
+ */
 public class LoginActivity extends Activity {
 	
 	private User user;
+	private UserCollection userCollection;
+	private Security security;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		userCollection = new UserCollection(this);
 		
-		//temporary code
-		//UserCollection uc = new UserCollection();
-		//user = uc.getUser();
-		
-		
-		
+		security = new Security(userCollection);
+			
+		// When the user clicks "Sign up" changes to registration screen
+		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);		
+		registerScreen.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View v) {
+				// Switching to Register screen
+        		Context mContext = getApplicationContext();
+				Intent i = new Intent(mContext, RegisterNewUserActivity.class);
+				startActivity(i);
+			}
+		});	
 	}
 	
-	
 	//is called when login button is clicked
-	public void goToItemProfile(View view){//supposed to go to user profile, will change later
-		EditText name = (EditText)findViewById(R.id.username);//get name
+	public void validateLogin(View view){//supposed to go to user profile, will change later
+		EditText email = (EditText)findViewById(R.id.username);//get name
         EditText password = (EditText)findViewById(R.id.password);//get password
-        //needs to check if user is valid
-		Intent intent = new Intent(this, UserProfileActivity.class);
-		startActivity(intent);
-		
+     
+        security.findUser(email.getText().toString());
+        
+        //if valid user
+        if(security.checkMatch(email.getText().toString(), password.getText().toString())){
+        	User user = userCollection.getUser(email.getText().toString());
+            Intent intent = new Intent(this, UserProfileActivity.class);
+            intent.putExtra("user", user);//pass in the already existing UserCollection
+            startActivity(intent);	 
+        }  
+        //bad login, increase attempt
+        else{
+            security.checkAttempts(email.getText().toString(), password.getText().toString());
+            if(security.getIsLocked()){
+                TextView textview = new TextView(this);
+                textview.setText("Locked Out. Restart app to log in again.");
+                setContentView(textview);
+            }
+        }
+        
 	}
 
 	@Override
@@ -52,35 +82,30 @@ public class LoginActivity extends Activity {
 		return true;
 	}
 	
-	/*      all temp code until database is running
-	
-	public void showDialog(String name, String password){
-		 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-		 
-		 if(user.getName().equals(name) && user.getPassword().equals(password)){
-				alertDialog.setMessage("login successful");
+	/*      
+	 * Pop up dialogue letting the user know if login is successful
+	 */
+	public void showDialog(String email, String password){
+		 AlertDialog alertDialog = new AlertDialog.Builder(this).create(); 
+		 // If info valid, login successful
+		 if(user.getEmail().equals(email) && user.getPassword().equals(password)){
+				alertDialog.setMessage("Login successful");
 				alertDialog.setButton(-3,"OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 				// here you can add functions
+					
 				}
-			});
-         	
+			});     	
          }
+		 // If info invalid, login failed
 		 else{
-				alertDialog.setMessage("login fail!!!!");
+				alertDialog.setMessage("Login Failed");
 				alertDialog.setButton(-3,"OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 				// here you can add functions
 				}
-			});
-			 
-		 }
-		
-		
+			}); 
+		}	
 		alertDialog.show();
-		}
-		*/
-		
-
-
+	}
 }
