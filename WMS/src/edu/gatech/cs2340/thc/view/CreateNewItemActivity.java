@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import edu.gatech.cs2340.thc.model.Item;
 import edu.gatech.cs2340.thc.model.User;
 import edu.gatech.cs2340.thc.presenter.ItemProfilePageActivity;
 import edu.gatech.cs2340.thc.presenter.UserProfileActivity;
@@ -39,6 +38,7 @@ public class CreateNewItemActivity extends Activity {
 	}
 	
 	//if user click "create new item" button
+	@SuppressWarnings("deprecation")
 	public void createNewItem(View View){
 		
 		//get all info	
@@ -68,25 +68,26 @@ public class CreateNewItemActivity extends Activity {
 			categoryString = "Misc";
 		}
 	
-		EditText itemName = (EditText)findViewById(R.id.nameField);//get name
+		EditText name = (EditText)findViewById(R.id.nameField);//get name
 		EditText reward = (EditText)findViewById(R.id.rewardField);//get reward
-		EditText itemDes = (EditText)findViewById(R.id.itemDesField);//get item description
+		EditText description = (EditText)findViewById(R.id.itemDesField);//get item description
 		EditText date = (EditText)findViewById(R.id.dateField);
-		//EditText category = (EditText)findViewById(R.id.categoryField);
+		EditText location = (EditText)findViewById(R.id.locationField);
 		
-		String itemString = itemName.getText().toString();
+		String nameString = name.getText().toString();
 		String rewardString = reward.getText().toString();
-		String itemDesString = itemDes.getText().toString();
+		String descriptionString = description.getText().toString();
 		String dateString = date.getText().toString();
-		//String categoryString = category.getText().toString();
+		String locationString = location.getText().toString();
 		
 		/*Item item = new Item(itemString, itemDesString, rewardString, type, 
 				dateString, categoryString, user.getEmail());
 		*/
+		
 		//Adds to the database
 		this.dh = new DBController(this);
-		this.dh.insert(itemString, itemDesString, rewardString, type, dateString, 
-				categoryString, user.getEmail());
+		this.dh.insert(nameString, descriptionString, locationString, 
+				categoryString, rewardString, type, dateString, user.getEmail());
 		
 		showDialog(DIALOG_ID);
 		

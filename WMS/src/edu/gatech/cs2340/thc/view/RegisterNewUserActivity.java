@@ -21,8 +21,9 @@ import edu.gatech.cs2340.triggerhappycoders.R;
  *
  */
 public class RegisterNewUserActivity extends Activity{
-
+	
 	private UserCollection uc;
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -49,7 +50,6 @@ public class RegisterNewUserActivity extends Activity{
 		// Shows if registration is successful
 		Button registered = (Button) findViewById(R.id.btnRegister);
 		registered.setOnClickListener(new View.OnClickListener() {
-
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				EditText name = (EditText) findViewById(R.id.reg_name);
@@ -64,12 +64,19 @@ public class RegisterNewUserActivity extends Activity{
 	}
 	
 
+
 	/*
 	 * Pop up dialogues that tell the user if registration is successful
 	 */
 	public void showDialog(String name, String password, String email) {
 		
+		
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+		
+		// If email is already in the User Collection don't allow registration
+		//if(u.getEmail() == uc.getUser(email).getEmail()){
+		
+		
 		
 		if(uc.getUser(email) != null && email.equals(uc.getUser(email).getEmail())){
 			alertDialog.setMessage("Email already exists.");
@@ -80,19 +87,22 @@ public class RegisterNewUserActivity extends Activity{
 						}
 					});
 		}
+		
+		
 		else{
 			alertDialog.setMessage("Registration Successful");
-			User u = new User(name, email, password);
+			User u = new User(name, password, email, false, false);
 			uc.addUser(u);
 			
 			alertDialog.setButton(-3, "OK",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
-							// here you can add functions
+						// here you can add functions
 							
 						}
 					});
-		}	
+		}
+		
 		alertDialog.show();
 	}
 }

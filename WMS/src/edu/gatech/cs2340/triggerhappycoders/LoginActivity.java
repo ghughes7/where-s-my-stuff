@@ -11,8 +11,10 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import edu.gatech.cs2340.thc.model.Admin;
 import edu.gatech.cs2340.thc.model.User;
 import edu.gatech.cs2340.thc.model.UserCollection;
+import edu.gatech.cs2340.thc.presenter.AdminProfileActivity;
 import edu.gatech.cs2340.thc.presenter.UserProfileActivity;
 import edu.gatech.cs2340.thc.view.RegisterNewUserActivity;
 
@@ -27,6 +29,7 @@ public class LoginActivity extends Activity {
 	private User user;
 	private UserCollection userCollection;
 	private Security security;
+	Admin ad;
 	
 	
 	@Override
@@ -34,6 +37,35 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		userCollection = new UserCollection(this);
+		
+		ad = new Admin("admin","adpass","admin@gmail.com",false, true);
+		
+		/*
+		userCollection.eraseTextFile();
+		
+		User u = new User("tuna","tunap","tunae",false,false);
+		User u2 = new User("tuna2","tunap2","tunae2",false,false);
+		User u3 = new User("bacon","baconp","bacone",false,false);
+		
+		userCollection.addUser(u);
+		userCollection.addUser(u3);
+		userCollection.addUser(u2);
+		userCollection.addUser(ad);
+	
+		ad.promoteToAdmin(userCollection.getUser(u.getEmail()), userCollection);
+		
+		
+		
+		User u2 = new User("tuna2","tunap2","tunae2",false,false);
+		ad.lock(u2,userCollection);
+		
+		//for testing purposes
+		Context mContext = getApplicationContext();
+		Intent i = new Intent(mContext, ShowUsersActivity.class);
+		startActivity(i);
+		
+		*/
+		
 		
 		security = new Security(userCollection);
 			
@@ -49,28 +81,51 @@ public class LoginActivity extends Activity {
 		});	
 	}
 	
+	
+	
 	//is called when login button is clicked
 	public void validateLogin(View view){//supposed to go to user profile, will change later
+		
 		EditText email = (EditText)findViewById(R.id.username);//get name
         EditText password = (EditText)findViewById(R.id.password);//get password
-     
+    
         security.findUser(email.getText().toString());
         
-        //if valid user
-        if(security.checkMatch(email.getText().toString(), password.getText().toString())){
+        
+        if(security.isUserLocked()){
+        	//show message that they are locked
+        	showLockedUserDialog();
+        }
+      //if valid user
+        else if(security.checkMatch(email.getText().toString(), password.getText().toString())){
         	User user = userCollection.getUser(email.getText().toString());
-            Intent intent = new Intent(this, UserProfileActivity.class);
-            intent.putExtra("user", user);//pass in the already existing UserCollection
-            startActivity(intent);	 
-        }  
+        	
+        	if(user.getIsAdmin()){//launch the admin profile page
+        		Intent intent = new Intent(this, AdminProfileActivity.class);
+        		//intent.putExtra("user",user);
+        		startActivity(intent);
+        	}
+        	else{
+        		 Intent intent = new Intent(this, UserProfileActivity.class);
+                 intent.putExtra("user", user);//pass in the already existing UserCollection
+                 startActivity(intent);
+        		
+        	}
+           
+        	 
+        }
+        
         //bad login, increase attempt
         else{
             security.checkAttempts(email.getText().toString(), password.getText().toString());
+            
+            //Log.d("email",email.getText().toString());
             if(security.getIsLocked()){
                 TextView textview = new TextView(this);
                 textview.setText("Locked Out. Restart app to log in again.");
                 setContentView(textview);
             }
+            showIncorrectAttemptDialog();
         }
         
 	}
@@ -82,30 +137,44 @@ public class LoginActivity extends Activity {
 		return true;
 	}
 	
+	
+	
+	
 	/*      
-	 * Pop up dialogue letting the user know if login is successful
+	 * shows user is locked out 
 	 */
-	public void showDialog(String email, String password){
+	public void showLockedUserDialog(){
 		 AlertDialog alertDialog = new AlertDialog.Builder(this).create(); 
-		 // If info valid, login successful
-		 if(user.getEmail().equals(email) && user.getPassword().equals(password)){
-				alertDialog.setMessage("Login successful");
+				alertDialog.setMessage("Locked Out. Admin needs to unlock your account");
 				alertDialog.setButton(-3,"OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 				// here you can add functions
 					
 				}
 			});     	
-         }
-		 // If info invalid, login failed
-		 else{
-				alertDialog.setMessage("Login Failed");
-				alertDialog.setButton(-3,"OK", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
-				// here you can add functions
-				}
-			}); 
-		}	
+         
+		 
+		 	
 		alertDialog.show();
 	}
+	
+	/*      
+	 * shows incorrect attempt box
+	 */
+	public void showIncorrectAttemptDialog(){
+		 AlertDialog alertDialog = new AlertDialog.Builder(this).create(); 
+				alertDialog.setMessage("Wrong email and/or password. Try again");
+				alertDialog.setButton(-3,"OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				// here you can add functions
+					
+				}
+			});     	
+        
+		 
+		 	
+		alertDialog.show();
+	}
+	
+	
 }

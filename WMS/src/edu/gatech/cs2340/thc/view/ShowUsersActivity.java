@@ -2,87 +2,115 @@ package edu.gatech.cs2340.thc.view;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import edu.gatech.cs2340.thc.model.User;
-import edu.gatech.cs2340.thc.presenter.UserProfileActivity;
-import edu.gatech.cs2340.triggerhappycoders.DBController;
+import edu.gatech.cs2340.thc.model.UserCollection;
 import edu.gatech.cs2340.triggerhappycoders.R;
 
-public class ShowUsersActivity extends ListActivity {
+/**
+ * for testing purposes
+ * @author circusburger63
+ *
+ */
+public class ShowUsersActivity extends ListActivity  {
 
-	private User user;
-	TextView selection;
-	public int idToModify; 
-	DBController db;
-
-	List<String[]> list = new ArrayList<String[]>();
-	List<String[]> usernames2 = null ;
-	String[] stg1;
-	
-	protected void onCreate(Bundle savedInstanceState){
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.check);
+		setContentView(R.layout.users_list_activity);
+		displayList();
+	}
+	public void displayList(){
 		
-		Button userProf = (Button)findViewById(R.id.userProf);
-		userProf.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				//when button is clicked, the screen changes
-				Intent addItemScreen = new Intent(getApplicationContext(), 
-						UserProfileActivity.class);
-				//addItemScreen.putExtra("user", user);
-				startActivity(addItemScreen);
-			}
-		});	
+		TextView list = (TextView) findViewById(R.id.selection);
+		EditText number = (EditText) findViewById(R.id.number);
 		
-		//Gets the database info
-		db = new DBController(this);
-	    usernames2 = db.allUsers();
-	    
-	    //Gets the user
-	    Intent intent = getIntent();
-	    user = (User)intent.getSerializableExtra("user");
-
-		stg1=new String[usernames2.size()]; 
-		int x=0;
-		String stg;
-
-		//Goes through the database
-		for (String[] username : usernames2) {
-			//Checks for a specific user
-			//if(name[7].equals(user.getEmail())){
-				stg = "Name: " + username[1] + "\n" + "Password: " + username[2] + 
-						"\n" + "Email: " + username[3] + "\n" + "Is Locked: " + 
-						username[4] + "\n" + "Is Admin: " + username[5] + "\n";				
-				stg1[x]=stg;
-				x++;
-			//}
+		UserCollection uc = new UserCollection(this);
+		//uc.deleteUser("tunae");
+		
+		
+		List <User> userList = uc.getUserList();
+		String info = "";
+		ArrayList<String> infoArray = new ArrayList<String>();
+		
+		
+		for(int i = 0; i < userList.size(); i++){
+			info = "Email: " + userList.get(i).getEmail() + "\n" + "Name: " + 
+					userList.get(i).getName() + "\n" + "Admin: " + userList.get(i).getIsAdmin()
+					+ "\n" + "Locked Out: " + userList.get(i).getLockedStatus();
+			infoArray.add(info);
+			info = "";
 		}
+		
+		
+		/*
+		try {
 
-		//Displays to the screen
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>
-			(this,android.R.layout.simple_list_item_1, stg1);
-        this.setListAdapter(adapter);
-		selection=(TextView)findViewById(R.id.selection);
-	}      
-	
-	//Displays the clicked item at the top of the page
-	public void onListItemClick(ListView parent, View v, int position, long id) {
-		selection.setText(stg1[position]);
+			BufferedReader inputReader = new BufferedReader(
+					new InputStreamReader(
+
+					openFileInput("UserCollection")));
+
+			String inputString;
+
+			StringBuffer stringBuffer = new StringBuffer();
+
+			while ((inputString = inputReader.readLine()) != null) {
+
+				stringBuffer.append(inputString + "\n");
+				//Log.d("inputString0", inputString);
+
+			}
+			
+			//list.setText(stringBuffer.toString());
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		}
+		*/
+		
+		/*ArrayAdapter<String> adapter = new ArrayAdapter<String>
+		(this,android.R.layout.simple_list_item_1, infoArray);
+		        this.setListAdapter(adapter);*/
+		
+		setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, infoArray));
+		getListView().setTextFilterEnabled(true);
 	}
 	
+	
+	//when clicked on the user, dialog box shows up
+	public void onListItemClick(ListView parent, View v, int position, long id) {
+		super.onListItemClick(parent, v, position, id);
+		new AlertDialog.Builder(this).setTitle("User")
+		.setMessage("" + getListView().getItemAtPosition(position))
+		.setPositiveButton("OK", new DialogInterface.OnClickListener() {	
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+			// TODO Auto-generated method stub
+			}
+		})
+		.show();
+	}
+
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.user_profile, menu);
+		//getMenuInflater().inflate(R.menu.show_users, menu);
 		return true;
 	}
+
 }

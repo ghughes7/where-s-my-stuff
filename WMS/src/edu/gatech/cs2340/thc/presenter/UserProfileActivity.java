@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import edu.gatech.cs2340.thc.model.User;
 import edu.gatech.cs2340.thc.view.CreateNewItemActivity;
-import edu.gatech.cs2340.thc.view.ShowListActivity;
 import edu.gatech.cs2340.thc.view.ShowUsersActivity;
 import edu.gatech.cs2340.triggerhappycoders.R;
 

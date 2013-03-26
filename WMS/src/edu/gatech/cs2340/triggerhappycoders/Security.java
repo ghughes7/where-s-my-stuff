@@ -22,7 +22,12 @@ public class Security {
     
     public void findUser(String name){
         user = collection.getUser(name);
-        Log.d("secruity",user.getName());
+        if(user != null){
+        	Log.d("secruity",user.getName());
+        	
+        	Log.d("secruity", String.valueOf(user.getLockedStatus()));
+        }
+        
     }
 
     public void setAttempts(int attempts) {
@@ -51,11 +56,13 @@ public class Security {
                                                                 // attempts when
                                                                 // the username
                                                                 // or password
-                                                                // is wrong
+                                                           		// is wrong
         // and when the attempts are not equal to 3
-        if ((user == null || !(user.getEmail().equals(email) || user.getPassword().equals(password))) && attempts < 3) {
+    	
+        if (attempts < 2) {
             attempts++;
-        } else {
+        } 
+        else {
             if (user != null) {
                 user.lockedUser();
             }
@@ -64,14 +71,22 @@ public class Security {
     }
     
     public boolean checkMatch(String email, String password){
-    	String x = "true";
-        if(user!= null && user.getEmail().equals(email) && user.getPassword().equals(password)){
-            Log.d("checkMatch returns true",x);
+    	
+    	if(user!= null && user.getLockedStatus() == false && user.getEmail().equals(email) && user.getPassword().equals(password)){
+            
         	return true;
             
         }
         return false;
         
+    }
+    
+    public boolean isUserLocked(){
+    	if(user != null){
+    		return user.getLockedStatus();
+    	}
+    	return false;
+    	
     }
 
    

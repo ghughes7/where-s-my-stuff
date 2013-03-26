@@ -5,55 +5,59 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Item implements Serializable{//so we can pass an ItemProfile object to different intents/activities
 	
-	private String owner;
 	private String itemName;
 	private String itemDescription;
-	private String reward;
-	private String status;
-	private boolean donation;
-	private String type;
-	private String dateCreated;
-	private String catagory;
+	private String itemLocation;
+	private String itemStatus;
+	private String itemCategory;
+	private String itemReward;
+	private String itemType;
+	private String itemDate;
+	private String itemOwner;
+	private boolean itemDonation;
 	
-	public Item(String itemN, String itemDes, String r, String t, String date, String c, String o){
-		//owner = user;
-		itemName = itemN;
-		itemDescription = itemDes;
-		reward = r;
-		//status = s;
-		//donation = d;
-		type = t;
-		owner = o;
-		dateCreated = date;
-		catagory = c;
+	public Item(String name, String description, String location, String category, 
+			String reward, String type, String date, String owner){
+		
+		itemName = name;
+		itemDescription = description;
+		itemLocation = location;
+		//itemStatus = status;
+		itemCategory = category;
+		itemReward = reward;
+		itemType = type;
+		itemDate = date;
+		itemOwner = owner;
 	}
 	
 	public String getItemName(){
 		return itemName;
-		
 	}
 	public String getItemDes(){
 		return itemDescription;
 	}
 	public String getReward(){
-		return reward;
+		return itemReward;
 	}
 	public String getStatus(){
-		return status;
+		return itemStatus;
 	}
 	public boolean getDonation(){
-		return donation;
+		return itemDonation;
 	}
 	public String returnType(){
-		return type;
+		return itemType;
 	}
 	public String returnDate(){
-		return dateCreated;
+		return itemDate;
 	}
 	public String returnCatagory(){
-		return catagory;
+		return itemCategory;
+	}
+	public String returnLocation(){
+		return itemLocation;
 	}
 	public String getOwner(){
-		return owner;	
+		return itemOwner;
 	}
 }

@@ -5,9 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_show_users">ShowUsersActivity</string>
-	<string-array name="category_menu">
-		<item>Keepsake</item>
-		<item>Heirloom</item>
-		<item>Misc</item>
-	</string-array>
+    <string name="title_activity_admin_profile">AdminProfileActivity</string>
+
 </resources>

@@ -9,58 +9,63 @@ public class User implements Serializable {
 	private String password;
 	private String email;
 	private boolean isLocked;
+	private boolean isAdmin;
 	
-	public User(String name, String password,String email){
+	public User(String name, String password, String email, boolean isLocked, boolean isAdmin){
 		this.name = name;
 		this.password = password;
 		this.email = email;
-		isLocked = false;
+		this.isLocked = isLocked;
+		this.isAdmin = isAdmin;
 	}
 	
 	public void setName(String n){
-		name = n;
-		
+		name = n;	
 	}
+	
 	public void setPassword(String p){
 		password = p;
-		
 	}
 	
 	public void setEmail(String e){
-		email = e;
-		
+		email = e;	
 	}
 	
 	public String getName(){
 		return name;
 	}
+	
 	public String getPassword(){
-		return password;
-		
+		return password;		
 	}
+	
 	public String getEmail(){
-		return email;
-		
+		return email;		
 	}
-	
-	public void setUser(){
-		isLocked = true;
 		
-	}
-	
 	public void lockedUser(){
-        isLocked = true;
-        
+        isLocked = true;     
     }
     
     public void unLockedUser(){
-        isLocked = false;
-        
+        isLocked = false;       
     }
+    
     public boolean getLockedStatus(){
-        return isLocked;
-        
+        return isLocked;      
     }
+    
+    public boolean getIsAdmin(){
+    	return isAdmin;
+    }
+    
+	public void setToAdmin(){
+		isAdmin = true;
+	}
 	
+	public void revokeAdmin(){
+		isAdmin = false;
+	}
 	
 }
+

@@ -24,8 +24,8 @@ public class DBController {
 	
 	//create item table
     private static final String INSERT = "insert into "
-		+ TABLE_NAME + " (name, description, reward, type, date, category, owner) " +
-				"values (?,?,?,?,?,?,?)";
+		+ TABLE_NAME + " (name, description, location, category, reward, type, " +
+				"date, owner) values (?,?,?,?,?,?,?,?)";
     
     //creates user table
     private static final String USER = "insert into " + TABLE_USER + " (name," +
@@ -41,15 +41,16 @@ public class DBController {
 	}
 	
 	//adds the item info
-	public long insert(String name, String description, String reward, 
-			String type, String date, String category, String owner) {
+	public long insert(String name, String description, String location, 
+			String category, String reward, String type, String date, String owner) {
 		this.insertStmt.bindString(1, name);
 		this.insertStmt.bindString(2, description);
-		this.insertStmt.bindString(3, reward);
-		this.insertStmt.bindString(4, type);
-		this.insertStmt.bindString(5, date);
-		this.insertStmt.bindString(6, category);
-		this.insertStmt.bindString(7, owner);
+		this.insertStmt.bindString(3, location);
+		this.insertStmt.bindString(4, category);
+		this.insertStmt.bindString(5, reward);
+		this.insertStmt.bindString(6, type);
+		this.insertStmt.bindString(7, date);
+		this.insertStmt.bindString(8, owner);
 		return this.insertStmt.executeInsert();
 	}
 	
@@ -74,15 +75,16 @@ public class DBController {
 
 		List<String[]> list = new ArrayList<String[]>();
 		Cursor cursor = db.query(TABLE_NAME, new String[] { "id", "name", 
-				"description", "reward", "type", "date", "category", "owner" },
-				null, null, null, null, "name asc"); 
+				"description", "location", "category", "reward", "type", "date",
+				"owner"}, null, null, null, null, "name asc"); 
 
 		int x=0;
 		if (cursor.moveToFirst()) {
 			do {
 				String[] b1=new String[]{cursor.getString(0), cursor.getString(1),
 						cursor.getString(2), cursor.getString(3), cursor.getString(4),
-						cursor.getString(5), cursor.getString(6), cursor.getString(7)};
+						cursor.getString(5), cursor.getString(6), cursor.getString(7),
+						cursor.getString(8)};
 
 				list.add(b1);
 
@@ -134,8 +136,8 @@ public class DBController {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, " 
-					+ "name TEXT, description TEXT, reward TEXT, type TEXT, " +
-					"date TEXT, category TEXT, owner TEXT)");
+					+ "name TEXT, description TEXT, location TEXT, category TEXT, " +
+					"reward TEXT, type TEXT, date TEXT, owner TEXT)");
 			db.execSQL("CREATE TABLE " + TABLE_USER + " (id INTEGER PRIMARY KEY, " 
 					+ "name TEXT, password TEXT, email TEXT, isLocked TEXT," +
 					"isAdmin TEXT)");

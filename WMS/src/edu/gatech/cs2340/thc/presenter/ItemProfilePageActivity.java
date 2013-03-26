@@ -2,7 +2,10 @@ package edu.gatech.cs2340.thc.presenter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,11 +60,12 @@ public class ItemProfilePageActivity extends ListActivity {
 		//Goes through the database
 		for (String[] name : names2) {
 			//Checks for a specific user
-			if(name[7].equals(user.getEmail())){
-				stg = "Name: " + name[1] + "\n" + "Description: " + name[2] + 
-						"\n" + "Reward: " + name[3] + "\n" + "Type: " + name[4] + 
-						"\n" + "Date Added: " + name[5] + "\n" + "Category: " + 
-						name[6] + "\n" + "Owner: " + name[7] + "\n";				
+			if(name[8].equals(user.getEmail())){
+				stg = "\n" + "Name: " + name[1] + "\n" + "Description: " + 
+						name[2] + "\n" + "Location: " + name[3] + "\n" + 
+						"Category: " + name[4] + "\n" + "Reward: " + name[5] + 
+						"\n" + "Type: " + name[6] + "\n" + "Date: " + name[7] + 
+						"\n" + "Owner: " + name[8] + "\n";				
 				stg1[x]=stg;
 				x++;
 			}
@@ -76,7 +80,18 @@ public class ItemProfilePageActivity extends ListActivity {
 	
 	//Displays the clicked item at the top of the page
 	public void onListItemClick(ListView parent, View v, int position, long id) {
-		selection.setText(stg1[position]);
+		super.onListItemClick(parent, v, position, id);
+		new AlertDialog.Builder(this)
+		.setTitle("Your Item:")
+		.setMessage("" + getListView().getItemAtPosition(position))
+		.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+			}
+		})
+		.show();
 	}
 	
 	@Override
