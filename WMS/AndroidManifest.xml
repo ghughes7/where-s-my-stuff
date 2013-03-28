@@ -46,6 +46,10 @@
             android:name="edu.gatech.cs2340.thc.view.ShowUsersActivity"
             android:label="@string/title_activity_show_users" >
         </activity>
+		<activity
+            android:name="edu.gatech.cs2340.thc.presenter.AdminProfileActivity"
+            android:label="title_activity_admin_profile" >
+        </activity>
     </application>
 
 </manifest>

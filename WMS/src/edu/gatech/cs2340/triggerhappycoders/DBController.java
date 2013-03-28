@@ -8,6 +8,13 @@ import android.database.sqlite.SQLiteStatement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Uses SQLite to implement a database that contains a table of items and a 
+ * table of users
+ * 
+ * @author Trigger Happy Coders (23)
+ *
+ */
 public class DBController {
 	
 	private static final  String DATABASE_NAME = "mydatabase.db";
@@ -99,6 +106,7 @@ public class DBController {
 		return list;
 	}
 	
+	//returns a list of users from the table
 	public List<String[]> allUsers(){
 		List<String[]> userList = new ArrayList<String[]>();
 		Cursor cursor = db.query(TABLE_USER, new String[] { "id", "name",

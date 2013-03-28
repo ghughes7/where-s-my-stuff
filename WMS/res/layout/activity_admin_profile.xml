@@ -48,21 +48,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/name"
         android:layout_marginTop="21dp"
         android:ems="10"
         android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/name"
+    
+    <Button
+        android:id = "@+id/showUsers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="33dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
+        android:layout_marginTop="121dp"
+        android:onClick="showUserList"
+        android:text="Show Users" />
+        
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"

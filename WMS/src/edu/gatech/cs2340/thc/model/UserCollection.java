@@ -24,16 +24,15 @@ public class UserCollection implements Serializable {
 	
 	public void loadContext(Context fileContext) {
 		this.fileContext = fileContext;
-
 	}
+	
 	public void eraseTextFile(){//for testing purposes
 		try {
 			FileOutputStream fos = fileContext.getApplicationContext()
 					.openFileOutput("UserCollection", Context.MODE_PRIVATE);
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}
-		
+		}	
 	}
 	
 	public int getNumOfUsers(){
