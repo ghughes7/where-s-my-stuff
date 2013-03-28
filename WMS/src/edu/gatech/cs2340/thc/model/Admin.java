@@ -24,6 +24,11 @@ public class Admin extends User{
     	u.setToAdmin();
     	deleteOldData(u, uc);
     }
+    
+    public void demoteToUser(User u, UserCollection uc) {
+    	u.revokeAdmin();
+    	deleteOldData(u,uc);
+    }
    
     public void removeUser(User u,UserCollection uc){
     	uc.deleteUser(u.getEmail());

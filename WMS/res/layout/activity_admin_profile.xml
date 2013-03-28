@@ -41,8 +41,18 @@
         android:layout_below="@+id/button1"
         android:layout_marginTop="15dp"
         android:onClick="createAdmin"
-        android:text="Create admin" />
+        android:text="Create Admin" />
 
+    <Button
+        android:id = "@+id/demoteAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Button03"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="85dp" 
+        android:onClick="demoteAdmin"
+        android:text="Demote Admin"/>
+        
     <EditText
         android:id="@+id/email"
         android:layout_width="wrap_content"
@@ -60,6 +70,7 @@
         android:layout_marginTop="121dp"
         android:onClick="showUserList"
         android:text="Show Users" />
+    
         
     <ImageView
         android:id="@+id/imageView1"

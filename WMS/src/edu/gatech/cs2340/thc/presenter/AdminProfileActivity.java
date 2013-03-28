@@ -41,6 +41,13 @@ public class AdminProfileActivity extends Activity {
 		ad.promoteToAdmin(target, uc);
 		goToUserList();
 	}
+	public void demoteAdmin(View view){
+		uc = new UserCollection(this);
+		targetEmail = email.getText().toString();
+		target = uc.getUser(targetEmail);
+		ad.demoteToUser(target, uc);
+		goToUserList();
+	}
 	public void remove(View view){
 		uc = new UserCollection(this);
 		targetEmail = email.getText().toString();
