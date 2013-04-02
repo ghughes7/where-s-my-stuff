@@ -2,6 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+    <ScrollView
+	android:id="@+id/ScrollView01"
+  android:layout_width="match_parent"
+  android:layout_height="700px">
+  
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/Items"
@@ -214,4 +222,6 @@
         android:text="Cancel" 
         android:onClick = "goToUserProfile"/>
 
+</RelativeLayout>
+</ScrollView>
 </RelativeLayout>

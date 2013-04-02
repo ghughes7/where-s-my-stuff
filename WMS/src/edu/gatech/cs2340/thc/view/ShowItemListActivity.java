@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.EditText;
 import edu.gatech.cs2340.triggerhappycoders.R;

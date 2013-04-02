@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import edu.gatech.cs2340.thc.model.Item;
 import edu.gatech.cs2340.thc.model.User;
 import edu.gatech.cs2340.thc.model.UserCollection;
+import edu.gatech.cs2340.thc.presenter.ItemProfilePageActivity;
 import edu.gatech.cs2340.triggerhappycoders.LoginActivity;
 import edu.gatech.cs2340.triggerhappycoders.R;
 
@@ -50,6 +52,7 @@ public class RegisterNewUserActivity extends Activity{
 		// Shows if registration is successful
 		Button registered = (Button) findViewById(R.id.btnRegister);
 		registered.setOnClickListener(new View.OnClickListener() {
+
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				EditText name = (EditText) findViewById(R.id.reg_name);
@@ -63,7 +66,13 @@ public class RegisterNewUserActivity extends Activity{
 		
 	}
 	
-
+/*	public void validateRegistration(View view){
+		EditText name = (EditText) findViewById(R.id.reg_name);
+		EditText password = (EditText) findViewById(R.id.reg_password);
+		EditText email = (EditText) findViewById(R.id.reg_email);
+		showDialog(name.getText().toString(), email.getText()
+				.toString(), password.getText().toString());
+	}*/
 
 	/*
 	 * Pop up dialogues that tell the user if registration is successful
@@ -97,7 +106,7 @@ public class RegisterNewUserActivity extends Activity{
 			alertDialog.setButton(-3, "OK",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
-						// here you can add functions
+							// here you can add functions
 							
 						}
 					});

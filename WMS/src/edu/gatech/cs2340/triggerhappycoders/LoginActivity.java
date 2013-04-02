@@ -14,6 +14,7 @@ import edu.gatech.cs2340.thc.model.Admin;
 import edu.gatech.cs2340.thc.model.User;
 import edu.gatech.cs2340.thc.model.UserCollection;
 import edu.gatech.cs2340.thc.presenter.AdminProfileActivity;
+import edu.gatech.cs2340.thc.presenter.TabsActivity;
 import edu.gatech.cs2340.thc.presenter.UserProfileActivity;
 import edu.gatech.cs2340.thc.view.RegisterNewUserActivity;
 
@@ -37,9 +38,9 @@ public class LoginActivity extends Activity {
 		userCollection = new UserCollection(this);
 		
 		//ad = new Admin("admin","adpass","admin@gmail.com",false, true);
-		security = new Security(userCollection);
 		//userCollection.addUser(ad);
 		//userCollection.eraseTextFile();
+		security = new Security(userCollection);
 		
 		// When the user clicks "Sign up" changes to registration screen
 		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);		
@@ -74,7 +75,7 @@ public class LoginActivity extends Activity {
         		startActivity(intent);
         	}
         	else{
-        		 Intent intent = new Intent(this, UserProfileActivity.class);
+        		 Intent intent = new Intent(this, TabsActivity.class);
                  intent.putExtra("user", user);//pass in the already existing UserCollection
                  startActivity(intent);        		
         	}                  	 

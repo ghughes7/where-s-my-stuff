@@ -2,62 +2,80 @@ package edu.gatech.cs2340.thc.model;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
+
 public class Item implements Serializable{//so we can pass an ItemProfile object to different intents/activities
 	
+	private String owner;
 	private String itemName;
 	private String itemDescription;
-	private String itemLocation;
-	private String itemStatus;
-	private String itemCategory;
-	private String itemReward;
-	private String itemType;
-	private String itemDate;
-	private String itemOwner;
-	private boolean itemDonation;
+	private String reward;
+	private String status;
+	private boolean donation;
+	private String type;
+	private String dateCreated;
+	private String catagory;
+	private String location;
 	
-	public Item(String name, String description, String location, String category, 
-			String reward, String type, String date, String owner){
+
+	public Item(String itemN, String itemDes, String r, String t, String date, String c, String l, String o){
 		
-		itemName = name;
-		itemDescription = description;
-		itemLocation = location;
-		//itemStatus = status;
-		itemCategory = category;
-		itemReward = reward;
-		itemType = type;
-		itemDate = date;
-		itemOwner = owner;
+		itemName = itemN;
+		itemDescription = itemDes;
+		reward = r;
+		//status = s;
+		//donation = d;
+		type = t;//same as status
+		owner = o;
+		dateCreated = date;
+		catagory = c;
+		location = l;
+		
+
+		
 	}
+	
+
 	
 	public String getItemName(){
 		return itemName;
+		
 	}
 	public String getItemDes(){
 		return itemDescription;
 	}
 	public String getReward(){
-		return itemReward;
+		return reward;
 	}
 	public String getStatus(){
-		return itemStatus;
+		
+		return status;
 	}
 	public boolean getDonation(){
-		return itemDonation;
+		return donation;
+		
 	}
-	public String returnType(){
-		return itemType;
+	public String getType(){
+		
+		return type;
 	}
-	public String returnDate(){
-		return itemDate;
+	public String getDate(){
+		return dateCreated;
+		
 	}
-	public String returnCatagory(){
-		return itemCategory;
-	}
-	public String returnLocation(){
-		return itemLocation;
+	public String getCatagory(){
+		
+		return catagory;
 	}
 	public String getOwner(){
-		return itemOwner;
+		return owner;
+		
+	}
+	
+	public String getLocation(){
+		return location;
+	}
+	
+	public String toString(){
+		return itemName + " " + catagory + " " + status + " " + dateCreated + " " + type;
 	}
 }

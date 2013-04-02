@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="13"
         android:targetSdkVersion="17" />
 
     <application
@@ -35,7 +35,7 @@
             android:label="Item Profile" >
         </activity>
         <activity
-            android:name="edu.gatech.cs2340.thc.view.ShowListActivity"
+            android:name="edu.gatech.cs2340.thc.view.ShowItemListActivity"
             android:label="Item List" >
         </activity>
         <activity
@@ -46,9 +46,34 @@
             android:name="edu.gatech.cs2340.thc.view.ShowUsersActivity"
             android:label="@string/title_activity_show_users" >
         </activity>
-		<activity
+        <activity
+            android:name="edu.gatech.cs2340.thc.presenter.TabsActivity"
+            android:label="@string/title_activity_tabs" >
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.triggerhappycoders.TestActivity"
+            android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.triggerhappycoders.SearchFragment"
+            android:label="@string/title_activity_search_fragment"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.triggerhappycoders.SettingsFragment"
+            android:label="@string/title_activity_settings_fragment" >
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.triggerhappycoders.MapFragment"
+            android:label="@string/title_activity_map_fragment" >
+        </activity>
+    	<activity
             android:name="edu.gatech.cs2340.thc.presenter.AdminProfileActivity"
             android:label="title_activity_admin_profile" >
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.thc.presenter.UserItemsActivity"
+            android:label="Your Items" >
         </activity>
     </application>
 

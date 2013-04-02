@@ -16,18 +16,17 @@ public class ItemCollection {
 	
 	public ItemCollection(Context fc, User user){
 		itemArray = new ArrayList<Item>(); 
-		//makeUpItems();
 		
 		fileContext = fc;
-		this.user = user;	
+		this.user = user;
 		
-		//eraseTextFile();	
+		//eraseTextFile();
+		
 		refillArray();
+		
+		
 	}
-	
-	public void setUser(User u){
-		user = u;
-	}
+
 	
 	public void eraseTextFile(){//for testing purposes
 		try {
@@ -35,7 +34,8 @@ public class ItemCollection {
 					.openFileOutput("ItemCollection", Context.MODE_PRIVATE);
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}	
+		}
+		
 	}
 	
 	/*
@@ -50,7 +50,7 @@ public class ItemCollection {
 		int linesCount = 0;
 		Log.d("in refillArray() num", Integer.toString(getNumOfUserItems()));
 		
-		//for(int i = 0; i < getNumOfUserItems(); i++){
+		
 			try {
 				String FILENAME = "ItemCollection";
 				BufferedReader inputReader = new BufferedReader
@@ -62,8 +62,8 @@ public class ItemCollection {
 				while ((inputString = inputReader.readLine()) != null) {
 					info.add(inputString);
 					linesCount++;
-					if(linesCount % 5 == 0){
-						//itemArray.add(new Item(info.get(1),info.get(2),info.get(3), info.get(4), info.get(0)));
+					if(linesCount % 8 == 0){
+						itemArray.add(new Item(info.get(1),info.get(2),info.get(3), info.get(4), info.get(5), info.get(6),info.get(7), info.get(0)));
 						info.clear();
 					}
 					
@@ -77,7 +77,7 @@ public class ItemCollection {
 			}
 			
 			
-		//}
+		
 		Log.d("in refill method", Integer.toString(itemArray.size()));
 	}
 	
@@ -109,7 +109,7 @@ public class ItemCollection {
 			
 			while ((inputString = inputReader.readLine()) != null) {
 				linesCount++;
-				if (linesCount % 5 == 0) {
+				if (linesCount % 8 == 0) {
 					numItems++;
 				}
 			}
@@ -167,11 +167,13 @@ public class ItemCollection {
 				itemArray.remove(i);		
 			}	
 		}
+		
+		//needs to remove from text file
 	}
 	
 	public ArrayList<Item> getItemsOfUser(String owner){
 		ArrayList<Item> userItems = new ArrayList<Item>();
-		//Log.d("itemCollection size ", Integer.toString(itemArray.size()));
+	
 		for(int i = 0; i < itemArray.size(); i++){
 			if(itemArray.get(i).getOwner().equals(owner)){
 				userItems.add(itemArray.get(i));	
@@ -180,15 +182,18 @@ public class ItemCollection {
 		return userItems;
 	}
 	
+	public ArrayList<Item> getAllItems(){
+		ArrayList<Item> userItems = new ArrayList<Item>();
+	
+		for(int i = 0; i < itemArray.size(); i++){
+			userItems.add(itemArray.get(i));
+		}
+		return userItems;
+	}
+	
 	public void addToTextFile(Item item){
 		Log.d("adding to file", item.getItemName());
 		String FILENAME = "ItemCollection";
-		
-		String owner = "owner: ";
-		String itemName = "ItemName: ";
-		String itemDes = "ItemDescription: ";
-		String reward = "Reward: ";
-		String type = "Type: ";
 		
 		try{
 			FileOutputStream fos = fileContext.getApplicationContext().openFileOutput(FILENAME, Context.MODE_APPEND);
@@ -205,8 +210,18 @@ public class ItemCollection {
 			fos.write(item.getReward().getBytes());
 			fos.write(System.getProperty("line.separator").getBytes());
 			
-			fos.write(item.returnType().getBytes());
+			fos.write(item.getType().getBytes());
 			fos.write(System.getProperty("line.separator").getBytes());
+			
+			fos.write(item.getDate().getBytes());
+			fos.write(System.getProperty("line.separator").getBytes());
+			
+			fos.write(item.getCatagory().getBytes());
+			fos.write(System.getProperty("line.separator").getBytes());
+			
+			fos.write(item.getLocation().getBytes());
+			fos.write(System.getProperty("line.separator").getBytes());
+			
 			fos.close();
 		}
 		catch(IOException e1){
@@ -214,6 +229,7 @@ public class ItemCollection {
 		}
 		
 	}
+	
 	
 	public ArrayList<Item> getItemsArray(){
 		return itemArray;

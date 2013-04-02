@@ -5,6 +5,10 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_show_users">ShowUsersActivity</string>
-    <string name="title_activity_admin_profile">AdminProfileActivity</string>
+    <string name="title_activity_tabs">TabsActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_search_fragment">SearchFragment</string>
+    <string name="title_activity_settings_fragment">SettingsFragment</string>
+    <string name="title_activity_map_fragment">MapFragment</string>
 
 </resources>
