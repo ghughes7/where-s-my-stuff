@@ -1,7 +1,0 @@
-Extra Credit
-
-1. Database
-2. Maven
-3. In-class assignment (3/15/13)
-4. Adding a picture to the	
-5. Maps
