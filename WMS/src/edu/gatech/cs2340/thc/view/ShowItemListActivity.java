@@ -19,6 +19,11 @@ import edu.gatech.cs2340.triggerhappycoders.R;
 public class ShowItemListActivity extends Activity {
 
 	@Override
+	/**
+	 * This method is the default android material
+	 * 
+	 * @param savedInstanceState - Bundle  
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_list);
@@ -29,6 +34,9 @@ public class ShowItemListActivity extends Activity {
 		
 	}
 	
+	/**
+	 * This method displays the list from the user collection
+	 */
 	public void displayList(){
 		EditText list = (EditText) findViewById(R.id.listTest);
 
@@ -59,6 +67,12 @@ public class ShowItemListActivity extends Activity {
 	}
 
 	@Override
+	/**
+	 * This method adds items to the action bar if it is present
+	 * 
+	 * @param menu - Menu inflatable menu
+	 * @return true
+	 */
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		// getMenuInflater().inflate(R.menu.show_list, menu);

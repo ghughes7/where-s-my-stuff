@@ -24,9 +24,9 @@ public class ShowListActivity extends Activity {
 
 		// displayList();
 	}
-	
+
 	/**
-	 * This method displays the list from the user collection  
+	 * This method displays the list from the user collection
 	 */
 	public void displayList() {
 		EditText list = (EditText) findViewById(R.id.listTest);
