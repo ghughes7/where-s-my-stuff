@@ -36,8 +36,8 @@ public class User implements Serializable {
 	 *            - boolean tells the system whether or not that user's account
 	 *            is locked (and can only be unlocked by Administrator)
 	 * @param isAdmin
-	 *            - boolean tells the systme whether or not the user has
-	 *            elevated priveledges (special permissions to add/delete other
+	 *            - boolean tells the system whether or not the user has
+	 *            elevated privileges (special permissions to add/delete other
 	 *            user's etc.)
 	 */
 	public User(String name, String password, String email, boolean isLocked,
