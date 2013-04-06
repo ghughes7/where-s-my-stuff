@@ -19,17 +19,26 @@ import edu.gatech.cs2340.triggerhappycoders.R;
 
 /**
  * for testing purposes
- * @author circusburger63
+ * @author Trigger Happy Coders (23)
  *
  */
 public class ShowUsersActivity extends ListActivity  {
 
 	@Override
+	/**
+	 * This method is the default android material
+	 * 
+	 * @param savedInstanceState - Bundle  
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.users_list_activity);
 		displayList();
 	}
+	
+	/**
+	 * This method displays the list from the user collection  
+	 */
 	public void displayList(){
 		
 		TextView list = (TextView) findViewById(R.id.selection);
@@ -90,7 +99,15 @@ public class ShowUsersActivity extends ListActivity  {
 	}
 	
 	
-	//when clicked on the user, dialog box shows up
+
+	/**
+	 * This method shows a dialog box when a user is clicked
+	 * 
+	 * @param parent - ListView activity's list view widget
+	 * @param v - View The view that was clicked within the ListView
+	 * @param position - int The position of the view in the list
+	 * @param id - long The row id of the item that was clicked 
+	 */
 	public void onListItemClick(ListView parent, View v, int position, long id) {
 		super.onListItemClick(parent, v, position, id);
 		new AlertDialog.Builder(this).setTitle("User")
@@ -107,6 +124,11 @@ public class ShowUsersActivity extends ListActivity  {
 
 
 	@Override
+	/**
+	 * This method adds items to the action bar if it is present
+	 * 
+	 * @param menu - Menu inflatable menu
+	 */
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		//getMenuInflater().inflate(R.menu.show_users, menu);
