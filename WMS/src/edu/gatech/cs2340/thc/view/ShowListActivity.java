@@ -10,6 +10,11 @@ import android.view.Menu;
 import android.widget.EditText;
 import edu.gatech.cs2340.triggerhappycoders.R;
 
+/**
+ * Shows the list of items
+ * @author Trigger Happy Coders
+ *
+ */
 public class ShowListActivity extends Activity {
 
 	@Override

@@ -12,8 +12,8 @@ import android.widget.EditText;
 import edu.gatech.cs2340.triggerhappycoders.R;
 
 /**
- * for testing purposes
- * @author circusburger63
+ * Shows the list of items
+ * @author Trigger Happy Coders
  *
  */
 public class ShowItemListActivity extends Activity {
