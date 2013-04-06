@@ -20,7 +20,7 @@ import edu.gatech.cs2340.triggerhappycoders.R;
 /**
  * Registration form
  * 
- * @author THC
+ * @author Trigger Happy Coders
  * 
  */
 public class RegisterNewUserActivity extends Activity {
@@ -43,6 +43,12 @@ public class RegisterNewUserActivity extends Activity {
 		TextView loginScreen = (TextView) findViewById(R.id.link_to_login);
 		loginScreen.setOnClickListener(new View.OnClickListener() {
 			@Override
+			
+			/**
+			 * This method is used for switching to the login screen/closing register screen
+			 * 
+			 * @param v - View The view that was clicked within the ListView  
+			 */
 			public void onClick(View v) {
 				// Switching to Login Screen/closing register screen
 
@@ -57,7 +63,13 @@ public class RegisterNewUserActivity extends Activity {
 		// Shows if registration is successful
 		Button registered = (Button) findViewById(R.id.btnRegister);
 		registered.setOnClickListener(new View.OnClickListener() {
-
+			
+			
+			/**
+			 * This method shows if the registration is successful
+			 * 
+			 * @param v - View The view that was clicked within the ListView  
+			 */
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				EditText name = (EditText) findViewById(R.id.reg_name);
