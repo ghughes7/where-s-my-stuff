@@ -1,4 +1,7 @@
-# built application files
+#For Macs
+*.DS_Store
+
+#built application files
 *.apk
 *.ap_
 
