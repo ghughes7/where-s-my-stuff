@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Button03"
+        android:layout_below="@+id/Button01"
+        android:layout_marginTop="21dp"
+        android:onClick="unlock"
+        android:text="Unlock" />
+
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Button02"
+        android:layout_below="@+id/email"
+        android:layout_marginTop="40dp"
+        android:onClick="lock"
+        android:text="Lock" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Button02"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:onClick="remove"
+        android:text="Remove" />
+
+    <Button
+        android:id="@+id/Button03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="15dp"
+        android:onClick="createAdmin"
+        android:text="Create Admin" />
+
+    <Button
+        android:id = "@+id/demoteAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Button03"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="85dp" 
+        android:onClick="demoteAdmin"
+        android:text="Demote Admin"/>
+        
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+    
+    <Button
+        android:id = "@+id/showUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="121dp"
+        android:onClick="showUserList"
+        android:text="Show Users" />
+    
+        
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Button01"
+        android:layout_alignLeft="@+id/Button01"
+        android:layout_alignRight="@+id/Button02"
+        android:layout_alignTop="@+id/name"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/ic_launcher" />
+
+</RelativeLayout>
