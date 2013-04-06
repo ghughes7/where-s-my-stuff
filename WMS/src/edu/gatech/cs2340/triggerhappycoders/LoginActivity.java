@@ -54,7 +54,13 @@ public class LoginActivity extends Activity {
 		});	
 	}
 	
-	//is called when login button is clicked
+	
+	/**
+	* This method is called when login button is clicked
+	* 
+	* @param view - View supposed to go to the user 
+	*/
+	
 	public void validateLogin(View view){//supposed to go to user profile, will change later
 		
 		EditText email = (EditText)findViewById(R.id.username);//get name
@@ -94,15 +100,24 @@ public class LoginActivity extends Activity {
 	}
 
 	@Override
+	
+	/**
+	* This method adds items to the action bar if it is present
+	* 
+	* @param menu - Menu  
+	*/
+	
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		//getMenuInflater().inflate(R.menu.activity_login, menu);
 		return true;
 	}
 	
-	/*      
-	 * shows user is locked out 
-	 */
+	
+	/**
+	* This method shows user is locked out   
+	*/
+	
 	public void showLockedUserDialog(){
 		 AlertDialog alertDialog = new AlertDialog.Builder(this).create(); 
 				alertDialog.setMessage("Locked Out. Admin needs to unlock your account");
@@ -115,9 +130,11 @@ public class LoginActivity extends Activity {
 		alertDialog.show();
 	}
 	
-	/*      
-	 * shows incorrect attempt box
-	 */
+	
+	/**
+	* This method shows incorrect attempt box   
+	*/
+	
 	public void showIncorrectAttemptDialog(){
 		 AlertDialog alertDialog = new AlertDialog.Builder(this).create(); 
 				alertDialog.setMessage("Wrong email and/or password. Try again");
