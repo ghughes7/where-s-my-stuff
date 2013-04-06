@@ -22,6 +22,12 @@ import edu.gatech.cs2340.thc.view.CreateNewItemActivity;
 import edu.gatech.cs2340.thc.view.ShowUsersActivity;
 import edu.gatech.cs2340.triggerhappycoders.R;
 
+/**
+ * Displays the main user information (name, picture, items)
+ * 
+ * @author Trigger Happy Coders
+ * 
+ */
 public class UserProfileFragment extends Fragment {
 
 	private User user;
@@ -34,6 +40,9 @@ public class UserProfileFragment extends Fragment {
 	}
 
 	@Override
+	/**
+	 * This method is how a fragment starts an activity 
+	 */
 	public void onStart() {
 		super.onStart();
 
@@ -71,6 +80,11 @@ public class UserProfileFragment extends Fragment {
 		Button add = (Button) getView().findViewById(R.id.addItem);
 		add.setOnClickListener(new View.OnClickListener() {
 			@Override
+			/**
+			 * This method launches item profile so that users can create new items
+			 * 
+			 * @param v - View The view that was clicked within the ListView  
+			 */
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
@@ -84,6 +98,11 @@ public class UserProfileFragment extends Fragment {
 		Button userList = (Button)getView().findViewById(R.id.listUser);
 		userList.setOnClickListener(new View.OnClickListener() {
 			@Override
+			/**
+			 * This method launches item profile so that users can create new items
+			 * 
+			 * @param v - View The view that was clicked within the ListView  
+			 */
 			public void onClick(View v) {
 				//when button is clicked, the screen changes
 				Intent addItemScreen = new Intent(getActivity().getApplicationContext(), 
@@ -96,6 +115,12 @@ public class UserProfileFragment extends Fragment {
 		Button itemList = (Button)getView().findViewById(R.id.listItem);
 		itemList.setOnClickListener(new View.OnClickListener() {
 			@Override
+			
+			/**
+			 * This method launches item profile so that users can create new items
+			 * 
+			 * @param v - View The view that was clicked within the ListView  
+			 */
 			public void onClick(View v) {
 				//when button is clicked, the screen changes
 				Intent addItemScreen = new Intent(getActivity().getApplicationContext(), 
