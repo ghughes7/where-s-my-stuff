@@ -17,7 +17,8 @@ import android.util.Log;
  */
 public class ItemCollection {
 
-	private ArrayList<Item> itemArray;// contains all items created by all users
+	private ArrayList<Item> itemArray;// contains all items created bdy all
+										// users
 	private Context fileContext;
 	private User user;
 
@@ -65,7 +66,7 @@ public class ItemCollection {
 	 */
 
 	/**
-	 * Fills the ArrayList with current and added users. Writes the file to a
+	 * Fills the ArrayList with current and added items. Writes the file to a
 	 * log file.
 	 */
 	public void refillArray() {
