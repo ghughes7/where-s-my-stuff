@@ -1,10 +1,10 @@
 package edu.gatech.cs2340.thc.presenter;
 
-import edu.gatech.cs2340.thc.model.MapFragment;
-import edu.gatech.cs2340.thc.model.SettingsFragment;
 import edu.gatech.cs2340.thc.model.User;
+import edu.gatech.cs2340.triggerhappycoders.MapFragment;
 import edu.gatech.cs2340.triggerhappycoders.R;
-import edu.gatech.cs2340.thc.presenter.UserProfileFragment;
+import edu.gatech.cs2340.triggerhappycoders.SearchFragment;
+import edu.gatech.cs2340.triggerhappycoders.SettingsFragment;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -32,7 +32,7 @@ public class TabsActivity extends Activity {
 		tab.setTabListener(tl);
 		actionBar.addTab(tab);
 		
-		/*UserProfileActivity ta = new UserProfileActivity();
+		/*TestActivity ta = new TestActivity();
 		ta.setArguments(getIntent().getExtras());*/
 		
 		String label2 = "Search";

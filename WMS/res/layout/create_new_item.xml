@@ -121,6 +121,7 @@
         android:layout_height="wrap_content"
 		android:layout_toRightOf="@+id/reward"
         android:layout_alignRight="@+id/nameField"
+		android:hint="$ 0.00"
         android:layout_below="@+id/typeRadio"
         android:ems="10"
         android:inputType="number" />
@@ -190,6 +191,7 @@
         android:layout_alignRight="@+id/rewardField"
 		android:layout_toRightOf="@+id/date"
         android:layout_below="@+id/categoryRadio"
+        android:hint="MM/DD/YYYY"
         android:ems="10"
         android:inputType="date" />
 		
@@ -209,6 +211,7 @@
         android:layout_alignRight="@+id/rewardField"
 		android:layout_toRightOf="@+id/location"
         android:layout_below="@+id/dateField"
+		android:hint="City, State"
         android:ems="10"/>
 		
     <Button

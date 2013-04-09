@@ -18,58 +18,41 @@ import edu.gatech.cs2340.triggerhappycoders.LoginActivity;
 import edu.gatech.cs2340.triggerhappycoders.R;
 
 /**
- * Registration form
- * 
- * @author Trigger Happy Coders
- * 
+ * Registration form 
+ * @author THC
+ *
  */
-public class RegisterNewUserActivity extends Activity {
-
+public class RegisterNewUserActivity extends Activity{
+	
 	private UserCollection uc;
-
+	
+	
 	@Override
-	/**
-	 * This method is the default android material
-	 * 
-	 * @param savedInstanceState - Bundle  
-	 */
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register);
-
+		
 		uc = new UserCollection(this);
-
+		
 		// While on Register screen the user clicks login
 		TextView loginScreen = (TextView) findViewById(R.id.link_to_login);
 		loginScreen.setOnClickListener(new View.OnClickListener() {
 			@Override
-			
-			/**
-			 * This method is used for switching to the login screen/closing register screen
-			 * 
-			 * @param v - View The view that was clicked within the ListView  
-			 */
 			public void onClick(View v) {
 				// Switching to Login Screen/closing register screen
-
+			
 				Context mContext = getApplicationContext();
-				Intent i = new Intent();// go back to login
+				Intent i = new Intent();//go back to login
 				i.setClass(mContext, LoginActivity.class);
 				startActivity(i);
-				// finish();
+				//finish();
 			}
 		});
-
+		
 		// Shows if registration is successful
 		Button registered = (Button) findViewById(R.id.btnRegister);
 		registered.setOnClickListener(new View.OnClickListener() {
-			
-			
-			/**
-			 * This method shows if the registration is successful
-			 * 
-			 * @param v - View The view that was clicked within the ListView  
-			 */
+
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				EditText name = (EditText) findViewById(R.id.reg_name);
@@ -79,37 +62,32 @@ public class RegisterNewUserActivity extends Activity {
 						.toString(), email.getText().toString());
 			}
 		});
-
+		
+		
 	}
+	
+/*	public void validateRegistration(View view){
+		EditText name = (EditText) findViewById(R.id.reg_name);
+		EditText password = (EditText) findViewById(R.id.reg_password);
+		EditText email = (EditText) findViewById(R.id.reg_email);
+		showDialog(name.getText().toString(), email.getText()
+				.toString(), password.getText().toString());
+	}*/
 
 	/*
-	 * public void validateRegistration(View view){ EditText name = (EditText)
-	 * findViewById(R.id.reg_name); EditText password = (EditText)
-	 * findViewById(R.id.reg_password); EditText email = (EditText)
-	 * findViewById(R.id.reg_email); showDialog(name.getText().toString(),
-	 * email.getText() .toString(), password.getText().toString()); }
-	 */
-
-	/**
-	 * This method uses pop up dialogues that tell the user if registration is
-	 * successful
-	 * 
-	 * @param name
-	 *            - String user's name
-	 * @param password
-	 *            - String user's password
-	 * @param email
-	 *            - String user's email
+	 * Pop up dialogues that tell the user if registration is successful
 	 */
 	public void showDialog(String name, String password, String email) {
-
+		
+		
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-
+		
 		// If email is already in the User Collection don't allow registration
-		// if(u.getEmail() == uc.getUser(email).getEmail()){
-
-		if (uc.getUser(email) != null
-				&& email.equals(uc.getUser(email).getEmail())) {
+		//if(u.getEmail() == uc.getUser(email).getEmail()){
+		
+		
+		
+		if(uc.getUser(email) != null && email.equals(uc.getUser(email).getEmail())){
 			alertDialog.setMessage("Email already exists.");
 			alertDialog.setButton(-3, "OK",
 					new DialogInterface.OnClickListener() {
@@ -118,21 +96,22 @@ public class RegisterNewUserActivity extends Activity {
 						}
 					});
 		}
-
-		else {
+		
+		
+		else{
 			alertDialog.setMessage("Registration Successful");
 			User u = new User(name, password, email, false, false);
 			uc.addUser(u);
-
+			
 			alertDialog.setButton(-3, "OK",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
 							// here you can add functions
-
+							
 						}
 					});
 		}
-
+		
 		alertDialog.show();
 	}
 }

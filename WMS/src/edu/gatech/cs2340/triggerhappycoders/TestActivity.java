@@ -1,29 +1,25 @@
-package edu.gatech.cs2340.thc.presenter;
+package edu.gatech.cs2340.triggerhappycoders;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
+import edu.gatech.cs2340.thc.model.Item;
+import edu.gatech.cs2340.thc.model.ItemCollection;
+import edu.gatech.cs2340.thc.model.User;
+import edu.gatech.cs2340.thc.model.UserCollection;
+import edu.gatech.cs2340.thc.presenter.UserItemsActivity;
+import edu.gatech.cs2340.thc.view.CreateNewItemActivity;
+import edu.gatech.cs2340.thc.view.ShowUsersActivity;
+import android.os.Bundle;
 import android.app.Fragment;
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import edu.gatech.cs2340.thc.model.Item;
-import edu.gatech.cs2340.thc.model.ItemCollection;
-import edu.gatech.cs2340.thc.model.User;
-import edu.gatech.cs2340.thc.model.UserCollection;
-import edu.gatech.cs2340.thc.view.CreateNewItemActivity;
-import edu.gatech.cs2340.thc.view.ShowListActivity;
-import edu.gatech.cs2340.thc.view.ShowUsersActivity;
-import edu.gatech.cs2340.triggerhappycoders.R;
 
-public class UserProfileFragment extends Fragment {
+public class TestActivity extends Fragment {
 
 	private User user;
 	//private UserCollection uc;
@@ -40,11 +36,10 @@ public class UserProfileFragment extends Fragment {
 
 		Intent intent = getActivity().getIntent();
 		user = (User) intent.getSerializableExtra("user");
-	
+		/*uc = new UserCollection(getActivity());
+		user = uc.getUser("user1@gmail.com");*/
 
 		ItemCollection ic = new ItemCollection(getActivity(), user); // creates the item collection with three pre-made items
-		
-		
 		// gets items info
 		itemList = ic.getItemsOfUser(user.getEmail());
 
@@ -58,7 +53,7 @@ public class UserProfileFragment extends Fragment {
 
 		if (itemList != null) {
 			StringBuilder itemsString = new StringBuilder();
-			//Log.d("itemList size", Integer.toString(itemList.size()));
+			// Log.d("itemList size", Integer.toString(itemList.size()));
 			for (int i = 0; i < itemList.size(); i++) {
 				itemsString.append(itemList.get(i).getItemName());
 				itemsString.append("\n");
@@ -83,17 +78,27 @@ public class UserProfileFragment extends Fragment {
 			}
 		});
 		
-		
+/*		Button userList = (Button)getView().findViewById(R.id.listUser);
+		userList.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//when button is clicked, the screen changes
+				Intent addItemScreen = new Intent(getActivity().getApplicationContext(), 
+						ShowUsersActivity.class);
+				addItemScreen.putExtra("user", user);
+				startActivity(addItemScreen);
+			}
+		});*/
 		
 		Button itemList = (Button)getView().findViewById(R.id.listItem);
 		itemList.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				//when button is clicked, the screen changes
-				Intent intent = new Intent(getActivity().getApplicationContext(), 
+				Intent addItemScreen = new Intent(getActivity().getApplicationContext(), 
 						UserItemsActivity.class);
-				intent.putExtra("user", user);
-				startActivity(intent);
+				addItemScreen.putExtra("user", user);
+				startActivity(addItemScreen);
 			}
 		});	
 		

@@ -39,7 +39,7 @@
             android:label="Item List" >
         </activity>
         <activity
-            android:name="edu.gatech.cs2340.thc.presenter.UserProfileFragment"
+            android:name="edu.gatech.cs2340.thc.presenter.UserProfileActivity"
             android:label="Your Profile" >
         </activity>
         <activity
@@ -55,16 +55,16 @@
             android:label="@string/title_activity_test" >
         </activity>
         <activity
-            android:name="edu.gatech.cs2340.thc.presenter.SearchFragment"
+            android:name="edu.gatech.cs2340.triggerhappycoders.SearchFragment"
             android:label="@string/title_activity_search_fragment"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="edu.gatech.cs2340.thc.model.SettingsFragment"
+            android:name="edu.gatech.cs2340.triggerhappycoders.SettingsFragment"
             android:label="@string/title_activity_settings_fragment" >
         </activity>
         <activity
-            android:name="edu.gatech.cs2340.thc.model.MapFragment"
+            android:name="edu.gatech.cs2340.triggerhappycoders.MapFragment"
             android:label="@string/title_activity_map_fragment" >
         </activity>
         <activity
@@ -72,16 +72,28 @@
             android:label="title_activity_admin_profile" >
         </activity>
         <activity
+            android:name="edu.gatech.cs2340.thc.view.ShowListActivity"
+            android:label="title_activity_show_list" >
+        </activity>
+        <activity
             android:name="edu.gatech.cs2340.thc.presenter.UserItemsActivity"
             android:label="Your Items" >
         </activity>
         <activity
-            android:name="edu.gatech.cs2340.triggerhappycoders.TempActivity"
-            android:label="@string/title_activity_temp" >
+            android:name="edu.gatech.cs2340.thc.view.DatePickerActivity"
+            android:label="@string/title_activity_date_picker" >
         </activity>
         <activity
-            android:name="edu.gatech.cs2340.thc.presenter.PossibleItemMatches"
-            android:label="@string/title_activity_possible_item_matches" >
+            android:name="edu.gatech.cs2340.thc.view.MatchedItemsActivity"
+            android:label="@string/title_activity_matched_items" >
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.thc.view.MatchedItemActivity"
+            android:label="@string/title_activity_matched_item" >
+        </activity>
+        <activity
+            android:name="edu.gatech.cs2340.thc.view.ConfirmMatchedItemActivity"
+            android:label="@string/title_activity_confirm_matched_item" >
         </activity>
     </application>
 

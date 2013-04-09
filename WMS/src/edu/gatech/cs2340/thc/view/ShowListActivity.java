@@ -3,37 +3,41 @@ package edu.gatech.cs2340.thc.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.EditText;
+import edu.gatech.cs2340.thc.model.Item;
+import edu.gatech.cs2340.thc.model.ItemCollection;
+import edu.gatech.cs2340.thc.model.User;
+import edu.gatech.cs2340.thc.model.UserCollection;
 import edu.gatech.cs2340.triggerhappycoders.R;
 
-/**
- * Shows the list of items
- * @author Trigger Happy Coders
- *
- */
 public class ShowListActivity extends Activity {
 
 	@Override
-	/**
-	 * This method is the default android material
-	 * 
-	 * @param savedInstanceState - Bundle  
-	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_list);
-
-		// displayList();
+		
+		UserCollection uc = new UserCollection(this);
+		User u = uc.getUser("bacone");
+		ItemCollection ic = new ItemCollection(this,u);
+		ArrayList<Item> itemlist = ic.getItemsOfUser("bacone"); 
+		Log.d("itemlist", itemlist.get(0).getItemName());	
+		
+		
+		ic.deleteItem(itemlist.get(0));
+		displayList();
+		
+		
+		
 	}
-
-	/**
-	 * This method displays the list from the user collection
-	 */
-	public void displayList() {
+	
+	public void displayList(){
 		EditText list = (EditText) findViewById(R.id.listTest);
 
 		try {
@@ -58,16 +62,11 @@ public class ShowListActivity extends Activity {
 		} catch (IOException e) {
 
 			e.printStackTrace();
+
 		}
 	}
 
 	@Override
-	/**
-	 * This method adds items to the action bar if it is present
-	 * 
-	 * @param menu - Menu inflatable menu
-	 * @return true
-	 */
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		// getMenuInflater().inflate(R.menu.show_list, menu);

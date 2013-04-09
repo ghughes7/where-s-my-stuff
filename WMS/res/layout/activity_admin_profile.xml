@@ -24,7 +24,7 @@
         android:text="Lock" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Button02"
@@ -37,8 +37,8 @@
         android:id="@+id/Button03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_below="@+id/button1"
+        android:layout_alignLeft="@+id/confirm"
+        android:layout_below="@+id/confirm"
         android:layout_marginTop="15dp"
         android:onClick="createAdmin"
         android:text="Create Admin" />
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/Button03"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/confirm"
         android:layout_marginTop="85dp" 
         android:onClick="demoteAdmin"
         android:text="Demote Admin"/>

@@ -28,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView4"
+		android:layout_toRightOf="@+id/textView4"
         android:layout_centerHorizontal="true"
         android:text="TextView" />
 
@@ -36,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
-        android:layout_toLeftOf="@+id/dateView"
+        android:layout_toRightOf="@+id/textView1"
         android:text="TextView" />
 
     <TextView
@@ -71,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/TextView01"
-        android:layout_alignRight="@+id/textView4"
+        android:layout_toRightOf="@+id/TextView5"
         android:text="TextView" />
 
     <TextView
@@ -95,7 +96,7 @@
         android:id="@+id/TextView03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView2"
+        android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/TextView02"
         android:text="Location: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -105,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/TextView03"
-        android:layout_alignRight="@+id/TextView02"
+        android:layout_toRightOf="@+id/TextView03"
         android:text="TextView" />
 
     <TextView
@@ -139,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/TextView04"
         android:layout_alignBottom="@+id/TextView04"
-        android:layout_toRightOf="@+id/TextView03"
+        android:layout_toRightOf="@+id/TextView04"
         android:text="TextView" />
 
 </RelativeLayout>
