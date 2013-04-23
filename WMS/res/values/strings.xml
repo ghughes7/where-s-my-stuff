@@ -14,5 +14,6 @@
     <string name="title_activity_matched_items">MatchedItemsActivity</string>
     <string name="title_activity_matched_item">MatchedItemActivity</string>
     <string name="title_activity_confirm_matched_item">ConfirmMatchedItemActivity</string>
+    <string name="title_activity_possible_item_matches">PossibleItemMatches</string>
 
 </resources>
